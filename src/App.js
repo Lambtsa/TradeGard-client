@@ -3,6 +3,7 @@ import './main.scss';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+import Home from './views/Home';
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
       <main>
         <Switch>
           <Route exact path="/">
-            <p>Home</p>
+            <Home />
           </Route>
         </Switch>
       </main>

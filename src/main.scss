@@ -10,3 +10,8 @@ a {
   min-height: 100vh;
   grid-template-rows: auto 1fr auto;
 }
+.section__container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 3rem 0;
+}

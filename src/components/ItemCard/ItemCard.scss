@@ -1,0 +1,19 @@
+.ItemCard {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+.ItemCard__details {
+  padding: 1rem;
+}
+
+.ItemCard__image {
+  width: 200px;
+  height: 200px;
+  object-position: center;
+  object-fit: cover;
+  border-radius: 4px;
+}
