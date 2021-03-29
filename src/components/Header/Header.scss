@@ -1,0 +1,22 @@
+@import '../../styles/variables.scss';
+
+/*
+  Header Component
+*/
+.header {
+  background-color: $nav-bg;
+}
+.header__container {
+  display: flex;
+  align-items: center;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+.header__logo {
+  max-width: 90px;
+}
+.header__nav {
+  display: flex;
+  flex: 1;
+  justify-content: space-evenly;
+}

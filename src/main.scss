@@ -1,1 +1,12 @@
 @import './styles/reset.scss';
+@import './styles/variables.scss';
+
+a {
+  text-decoration: none;
+}
+
+#root {
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
+}
