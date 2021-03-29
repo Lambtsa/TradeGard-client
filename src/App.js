@@ -1,9 +1,22 @@
 import React from 'react';
 import './main.scss';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
-    <h1>Hello World!</h1>
+    <BrowserRouter>
+      <Header />
+      <main>
+        <Switch>
+          <Route exact path="/">
+            <p>Home</p>
+          </Route>
+        </Switch>
+      </main>
+      <Footer />
+    </BrowserRouter>
   );
 }
 
