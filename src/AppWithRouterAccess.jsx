@@ -26,7 +26,6 @@ function AppWithRouterAccess() {
     clientId: '0oafd70h4dDX1fzm95d6',
     redirectUri: '/login/callback',
     scopes: ['openid', 'profile', 'email'],
-    onAuthRequired,
     pkce: true,
     disableHttpsCheck: false,
   });
@@ -37,7 +36,7 @@ function AppWithRouterAccess() {
   };
 
   return (
-    <Security oktaAuth={oktaAuth} restoreOriginalUri={restoreOriginalUri}>
+    <Security oktaAuth={oktaAuth} restoreOriginalUri={restoreOriginalUri} onAuthRequired={onAuthRequired}>
       <Header />
       <main>
         <Switch>
