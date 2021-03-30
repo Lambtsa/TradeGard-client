@@ -2,7 +2,6 @@ import React from 'react';
 import { useOktaAuth } from '@okta/okta-react';
 import './Header.scss';
 import { Link, useHistory } from 'react-router-dom';
-import moustache from '../../assets/moustache.svg';
 
 const Header = () => {
   const { authState, oktaAuth } = useOktaAuth();
@@ -15,7 +14,6 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header__container">
-        <img className="header__logo" src={moustache} alt="Moustache company logo" />
         <nav className="header__nav">
           <Link className="header__link" to="/">Browse</Link>
           <Link className="header__link" to="/new-item">New Item</Link>

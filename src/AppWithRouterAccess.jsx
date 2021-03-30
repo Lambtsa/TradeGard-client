@@ -14,6 +14,7 @@ import SignIn from './components/SignIn/SignIn';
 
 import Home from './views/Home';
 import MyAccount from './views/MyAccount';
+import NewItem from './views/NewItem';
 
 function AppWithRouterAccess() {
   const history = useHistory();
@@ -44,6 +45,7 @@ function AppWithRouterAccess() {
           <Route exact path="/login" render={() => <SignIn />} />
           <Route exact path="/login/callback" component={LoginCallback} />
           <SecureRoute exact path="/my-account" component={MyAccount} />
+          <SecureRoute exact path="/new-item" component={NewItem} />
         </Switch>
       </main>
       <Footer />
