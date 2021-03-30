@@ -4,7 +4,7 @@ import './NewItem.scss';
 import { postItemToAPI } from '../modules/api-service';
 
 const NewItem = () => {
-  const { authState } = useOktaAuth();
+  const { authState, oktaAuth } = useOktaAuth();
   const [itemTitle, setItemTitle] = useState('');
   const [itemDescription, setItemDescription] = useState('');
   const [itemImages, setItemImages] = useState('');
@@ -19,13 +19,14 @@ const NewItem = () => {
     // validate inputs and output potential issues
     e.preventDefault();
     const { accessToken } = authState.accessToken;
-    console.log(accessToken);
+    const userInfo = await oktaAuth.token.getUserInfo();
     const newItem = {
       item: {
         itemTitle,
         itemDescription,
         itemImages: [itemImages],
         itemCategory,
+        itemOwner: userInfo.sub,
       },
     };
     try {
