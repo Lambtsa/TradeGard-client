@@ -18,7 +18,7 @@ const NewItem = () => {
   const handleFormSubmit = async e => {
     // validate inputs and output potential issues
     e.preventDefault();
-    const { accessToken } = authState;
+    const { accessToken } = authState.accessToken;
     console.log(accessToken);
     const newItem = {
       item: {
