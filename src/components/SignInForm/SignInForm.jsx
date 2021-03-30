@@ -44,18 +44,18 @@ const SignInForm = () => {
 
   return (
     <>
-      <form onSubmit={handleFormSubmit}>
-        <label htmlFor="username">
+      <form className="signin__form" onSubmit={handleFormSubmit}>
+        <label className="signin__label" htmlFor="username">
           Username
-          <input id="username" type="text" value={username} onChange={handleUsernameChange} />
+          <input className="signin__input" id="username" type="text" value={username} onChange={handleUsernameChange} />
         </label>
-        <label htmlFor="password">
+        <label className="signin__label" htmlFor="password">
           Password
-          <input id="password" type="password" value={password} onChange={handlePasswordChange} />
+          <input className="signin__input" id="password" type="password" value={password} onChange={handlePasswordChange} />
         </label>
-        <button type="submit">Submit</button>
+        <button className="signin__button" type="submit">Login</button>
       </form>
-      {error && <p>Something went wrong!</p>}
+      {error && <p className="errormessage">Something went wrong!</p>}
     </>
   );
 };

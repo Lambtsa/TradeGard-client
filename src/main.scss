@@ -11,6 +11,10 @@ p {
 a {
   text-decoration: none;
 }
+main {
+  max-width: 1140px;
+  margin: 0 auto;
+}
 
 #root {
   display: grid;
