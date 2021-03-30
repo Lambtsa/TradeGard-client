@@ -4,21 +4,34 @@ import './SignInForm.scss';
 
 const SignInForm = () => {
   const { oktaAuth } = useOktaAuth();
-  const [sessionToken, setSessionToken] = useState();
+  const [sessionToken] = useState();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleFormSubmit = e => {
-    e.preventDefault();
+  // const handleFormSubmit = e => {
+  //   e.preventDefault();
 
-    /* Sort out error handling */
-    oktaAuth.signInWithCredentials({ username, password })
-      .then(res => {
-        console.log(res.sessionToken);
-        setSessionToken(res.sessionToken);
-        oktaAuth.signInWithRedirect({ sessionToken });
-      })
-      .catch(err => console.log('Found an error', err));
+  //   /* Sort out error handling */
+  //   oktaAuth.signInWithCredentials({ username, password })
+  //     .then(res => {
+  //       console.log(res.sessionToken);
+  //       setSessionToken(res.sessionToken);
+  //       oktaAuth.signInWithRedirect({ sessionToken });
+  //     })
+  //     .catch(err => console.log('Found an error', err));
+  // };
+
+  const signIn = async event => {
+    event.preventDefault();
+    const transaction = await oktaAuth.signIn({
+      username,
+      password,
+    });
+    if (transaction.status === 'SUCCESS') {
+      oktaAuth.signInWithRedirect({
+        sessionToken: transaction.sessionToken,
+      });
+    }
   };
 
   const handleUsernameChange = e => {
@@ -29,12 +42,12 @@ const SignInForm = () => {
     setPassword(e.target.value);
   };
 
-  if (sessionToken) {
-    return null;
-  }
+  // if (sessionToken) {
+  //   return null;
+  // }
 
   return (
-    <form onSubmit={handleFormSubmit}>
+    <form onSubmit={signIn}>
       <label htmlFor="username">
         Username
         <input id="username" type="text" value={username} onChange={handleUsernameChange} />
