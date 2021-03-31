@@ -1,0 +1,29 @@
+.signin__form {
+  display: flex;
+  flex-direction: column;
+  padding: 3rem 0;
+}
+.signin__label {
+  display: flex;
+  flex-direction: column;
+}
+.signin__input {
+  border: 1px solid black;
+  margin-top: .2rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 4px;
+  width: 350px;
+}
+.signin__button {
+  padding: .5rem 1rem;
+  border: 2px solid black;
+  background-color: black;
+  color: white;
+  border-radius: 4px;
+  &:hover {
+    background-color: white;
+    border-radius: 2px solid black;
+    color: black;
+  }
+}
