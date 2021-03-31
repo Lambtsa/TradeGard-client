@@ -13,7 +13,16 @@ const postItemToAPI = (newItem, accessToken) => fetch(`${baseUrl}api/items`, {
   body: JSON.stringify(newItem),
 });
 
+const postNewUserToAPI = newUser => fetch(`${baseUrl}api/users`, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(newUser),
+});
+
 module.exports = {
   fetchAllProducts,
   postItemToAPI,
+  postNewUserToAPI,
 };
