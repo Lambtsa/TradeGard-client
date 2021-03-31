@@ -40,10 +40,9 @@ const ImageSlot = ({ itemTitle = '', setItemImages }) => {
         </div>
       )}
       {imageUrl === '' && (
-        <label className="form__label" htmlFor="image-1">
-          Item Images:
-          <input className="form__input" id="image-1" type="file" onChange={handleFileChange} accept="image/png, image/jpeg" />
-        </label>
+        <div className="form__img--wrapper">
+          <input className="form__img" type="file" onChange={handleFileChange} accept="image/png, image/jpeg" />
+        </div>
       )}
       {error && <p className="error-message">There was an error in uploading your image</p>}
     </>
