@@ -38,29 +38,29 @@ const NewItem = () => {
   };
 
   return (
-    <form onSubmit={handleFormSubmit}>
-      <label htmlFor="title">
+    <form className="form" onSubmit={handleFormSubmit}>
+      <label className="form__label" htmlFor="title">
         Item Title:
-        <input id="title" type="text" value={itemTitle} onChange={onTitleChange} placeholder="Enter title" required />
+        <input className="form__input" id="title" type="text" value={itemTitle} onChange={onTitleChange} placeholder="Enter title" required />
       </label>
-      <label htmlFor="description">
+      <label className="form__label" htmlFor="description">
         Item Description:
-        <input id="description" type="text" value={itemDescription} onChange={onDescriptionChange} placeholder="Enter description" required />
+        <input className="form__input" id="description" type="text" value={itemDescription} onChange={onDescriptionChange} placeholder="Enter description" required />
       </label>
-      <label htmlFor="images">
+      <label className="form__label" htmlFor="images">
         Item Images:
-        <input id="images" type="text" value={itemImages} onChange={onImageChange} placeholder="Enter image url" required />
+        <input className="form__input" id="images" type="text" value={itemImages} onChange={onImageChange} placeholder="Enter image url" required />
       </label>
-      <label htmlFor="category">
+      <label className="form__label" htmlFor="category">
         Item Category:
-        <select id="category" value={itemCategory} onChange={onCategoryChange} required>
+        <select className="form__input" id="category" value={itemCategory} onChange={onCategoryChange} required>
           <option value="">Please select category</option>
           <option value="furniture">Furniture</option>
           <option value="clothes">Clothes</option>
           <option value="books">Books</option>
         </select>
       </label>
-      <button type="submit">Add item</button>
+      <button className="form__btn" type="submit">Add item</button>
     </form>
   );
 };

@@ -44,16 +44,16 @@ const SignInForm = () => {
 
   return (
     <>
-      <form className="signin__form" onSubmit={handleFormSubmit}>
-        <label className="signin__label" htmlFor="username">
+      <form className="form" onSubmit={handleFormSubmit}>
+        <label className="form__label" htmlFor="username">
           Username
-          <input className="signin__input" id="username" type="text" value={username} onChange={handleUsernameChange} />
+          <input className="form__input" id="username" type="text" value={username} onChange={handleUsernameChange} />
         </label>
-        <label className="signin__label" htmlFor="password">
+        <label className="form__label" htmlFor="password">
           Password
-          <input className="signin__input" id="password" type="password" value={password} onChange={handlePasswordChange} />
+          <input className="form__input" id="password" type="password" value={password} onChange={handlePasswordChange} />
         </label>
-        <button className="signin__button" type="submit">Login</button>
+        <button className="form__btn" type="submit">Login</button>
       </form>
       {error && <p className="errormessage">Something went wrong!</p>}
     </>
