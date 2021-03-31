@@ -1,0 +1,20 @@
+.ImageSlot__container {
+  position: relative;
+}
+.ImageSlot__btn {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+}
+.ImageSlot__delete {
+  font-size: 2rem;
+  color: black;
+  
+}
+.ImageSlot__img {
+  width: 350px;
+  height: 350px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 4px;
+}
