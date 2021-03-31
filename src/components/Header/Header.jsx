@@ -19,7 +19,8 @@ const Header = () => {
           <Link className="header__link" to="/new-item">New Item</Link>
           <Link className="header__link" to="/trading">Trading</Link>
           <Link className="header__link" to="/likes">Likes</Link>
-          <Link className="header__link" to="/my-account">My account</Link>
+          {authState.isAuthenticated && <Link className="header__link" to="/my-account">My account</Link>}
+          {!authState.isAuthenticated && <Link className="header__link" to="/signup">SignUp</Link>}
           {button}
         </nav>
       </div>

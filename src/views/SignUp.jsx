@@ -8,15 +8,14 @@ const SignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  handleFirstNameChange = e => setFirstName(e.target.value);
-  handleLastNameChange = e => setLastName(e.target.value);
-  handleDisplayNameChange = e => setDisplayName(e.target.value);
-  handleTelephoneChange = e => setTelephone(e.target.value);
-  handleEmailChange = e => setEmail(e.target.value);
-  handlePasswordChange = e => setPassword(e.target.value);
+  const handleFirstNameChange = e => setFirstName(e.target.value);
+  const handleLastNameChange = e => setLastName(e.target.value);
+  const handleDisplayNameChange = e => setDisplayName(e.target.value);
+  const handleTelephoneChange = e => setTelephone(e.target.value);
+  const handleEmailChange = e => setEmail(e.target.value);
+  const handlePasswordChange = e => setPassword(e.target.value);
 
   return (
-  <>
     <form className="form">
       <label className="form__label" htmlFor="first-name">
         First name
@@ -42,8 +41,9 @@ const SignUp = () => {
         Password
         <input className="form__input" id="password" type="password" value={password} onChange={handlePasswordChange} placeholder="Enter passsword" required />
       </label>
+      <button className="form__btn" type="submit">Sign up</button>
     </form>
-  </>
-)};
+  );
+};
 
 export default SignUp;
