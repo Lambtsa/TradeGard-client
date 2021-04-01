@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { fetchAllProducts } from '../modules/api-service';
+import { fetchAllItems } from '../modules/api-service';
 import './Home.scss';
 
 import ItemCard from '../components/ItemCard/ItemCard';
@@ -10,7 +10,7 @@ const Home = () => {
   const [fetchError, setFetchError] = useState(false);
 
   useEffect(async () => {
-    const response = await fetchAllProducts();
+    const response = await fetchAllItems();
     if (response.ok) {
       const fetchedData = await response.json();
       if (fetchedData.length === 0) {

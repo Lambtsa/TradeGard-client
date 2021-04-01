@@ -2,9 +2,9 @@ const baseUrl = process.env.NODE_ENV === 'production'
   ? ''
   : 'http://localhost:8080/';
 
-const fetchAllProducts = () => fetch(`${baseUrl}api/items`);
+const fetchAllItems = () => fetch(`${baseUrl}api/items`);
 
-const fetchProductById = id => fetch(`${baseUrl}api/items/${id}`);
+const fetchItemById = id => fetch(`${baseUrl}api/items/${id}`);
 
 const postItemToAPI = (newItem, accessToken) => fetch(`${baseUrl}api/items`, {
   method: 'POST',
@@ -23,9 +23,12 @@ const postNewUserToAPI = newUser => fetch(`${baseUrl}api/users`, {
   body: JSON.stringify(newUser),
 });
 
+const fetchContactDetailsById = id => fetch(`${baseUrl}api/users/${id}`);
+
 module.exports = {
-  fetchAllProducts,
+  fetchAllItems,
   postItemToAPI,
   postNewUserToAPI,
-  fetchProductById,
+  fetchItemById,
+  fetchContactDetailsById,
 };

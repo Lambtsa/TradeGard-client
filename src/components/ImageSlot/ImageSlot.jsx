@@ -33,8 +33,8 @@ const ImageSlot = ({ itemTitle = '', setItemImages }) => {
     <>
       {imageUrl !== '' && (
         <div className="ImageSlot__container">
-          <button className="ImageSlot__btn" type="button" onClick={handleDeleteClick}>
-            <FontAwesomeIcon icon={deleteIcon} className="ImageSlot__delete" />
+          <button className="icon__btn" type="button" onClick={handleDeleteClick}>
+            <FontAwesomeIcon icon={deleteIcon} className="icon__delete" />
           </button>
           <img className="ImageSlot__img" src={imageUrl} alt={itemTitle} />
         </div>
