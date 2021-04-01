@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
-import './Header.scss';
 import { Link, useHistory } from 'react-router-dom';
 
 /* eslint-disable */

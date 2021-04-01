@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { fetchAllItems } from '../modules/api-service';
-import './Home.scss';
 
 import ItemCard from '../components/ItemCard/ItemCard';
 

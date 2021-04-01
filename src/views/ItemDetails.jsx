@@ -8,8 +8,6 @@ import {
   faUserCircle as userIcon,
 } from '@fortawesome/free-solid-svg-icons';
 import { fetchItemById } from '../modules/api-service';
-
-import './ItemDetails.scss';
 import ContactModal from '../components/ContactModal/ContactModal';
 
 const ItemDetails = () => {
@@ -38,8 +36,6 @@ const ItemDetails = () => {
   if (error) {
     return <Redirect to="/not-found" />;
   }
-
-  console.log(objectDetails);
 
   return (
     <>

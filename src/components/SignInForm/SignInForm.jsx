@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
-import './SignInForm.scss';
 
 const SignInForm = () => {
   const [error, setError] = useState(false);

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
-import './NewItem.scss';
 import { postItemToAPI } from '../modules/api-service';
 import ImageSlot from '../components/ImageSlot/ImageSlot';
 
