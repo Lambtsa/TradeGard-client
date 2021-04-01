@@ -6,30 +6,35 @@ import ItemCard from '../components/ItemCard/ItemCard';
 
 const Home = () => {
   const [items, setItems] = useState([]);
-  const [error, setError] = useState(false);
+  const [noItemError, setnoItemError] = useState(false);
+  const [fetchError, setFetchError] = useState(false);
 
   useEffect(async () => {
     const response = await fetchAllProducts();
     if (response.ok) {
       const fetchedData = await response.json();
+      if (fetchedData.length === 0) {
+        setnoItemError(true);
+      }
       setItems(fetchedData);
     } else {
-      setError(true);
+      setFetchError(true);
     }
   }, []);
 
   return (
     <section className="section__container">
-      {error && <p>Items could not be fetched</p>}
-      {!error && items.length > 0 && (
+      {fetchError && <p>Items could not be fetched</p>}
+      {noItemError && <p>Oops! There are no items at the moment</p>}
+      {!fetchError && items.length > 0 && (
         <ul className="home__items-container">
           {items.map(item => (
             <ItemCard key={item._id} item={item} />
           ))}
         </ul>
       )}
-      {!error && items.length === 0
-      && <p>Oops! There are no items at the moment</p>}
+      {!fetchError && !noItemError && items.length === 0
+      && <p>Loading...</p>}
     </section>
   );
 };
