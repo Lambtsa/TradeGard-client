@@ -34,6 +34,7 @@ main {
   display: flex;
   flex-direction: column;
   padding: 3rem 1rem;
+  min-width: 375px;
 }
 .form__label {
   display: flex;
