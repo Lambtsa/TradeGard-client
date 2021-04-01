@@ -45,32 +45,33 @@ const ItemDetails = () => {
     <>
       {isLoading && <p>Loading details...</p>}
       {!isLoading && (
-        <article>
-          <img src={objectDetails.itemImages[0]} alt={objectDetails.itemTitle} />
-          <div>
-            <h2>{objectDetails.itemTitle}</h2>
+        <article className="details">
+          <img className="details__img" src={objectDetails.itemImages[0]} alt={objectDetails.itemTitle} />
+          <div className="details__title-container">
+            <h2 className="details__title">{objectDetails.itemTitle}</h2>
             <FontAwesomeIcon icon={outlineHeart} className="icon__heart--outline" />
           </div>
-          <div>
-            <FontAwesomeIcon icon={mapMarker} className="" />
+          <div className="details__caption">
+            <FontAwesomeIcon icon={mapMarker} className="details__caption-icon" />
             <p>Stockholm</p>
           </div>
-          <div>
-            <FontAwesomeIcon icon={clock} className="" />
+          <div className="details__caption">
+            <FontAwesomeIcon icon={clock} className="details__caption-icon" />
             <p>{new Date(objectDetails.itemCreationDateUTC).toLocaleString()}</p>
           </div>
-          <p>{objectDetails.itemDescription}</p>
-          <div>
-            <FontAwesomeIcon icon={userIcon} className="" />
+          <p className="details__description">{objectDetails.itemDescription}</p>
+          <div className="details__caption">
+            <FontAwesomeIcon icon={userIcon} className="details__caption-icon" />
             <p>
-              Posted by:
-              {objectDetails.itemOwnerName}
+              {`Posted by: ${objectDetails.itemOwner.userDisplayName}`}
             </p>
           </div>
-          <button onClick={handleButtonClick} type="button">Contact</button>
+          <button className="primary__btn" onClick={handleButtonClick} type="button">Contact</button>
         </article>
       )}
-      {showModal && <ContactModal ownerId={objectDetails.itemOwner} setShowModal={setShowModal} />}
+      {showModal && (
+        <ContactModal ownerDetails={objectDetails.itemOwner} setShowModal={setShowModal} />
+      )}
     </>
   );
 };

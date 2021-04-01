@@ -53,7 +53,7 @@ const SignInForm = () => {
           Password
           <input className="form__input" id="password" type="password" value={password} onChange={handlePasswordChange} />
         </label>
-        <button className="form__btn" type="submit">Login</button>
+        <button className="primary__btn" type="submit">Login</button>
       </form>
       {error && <p className="errormessage">Something went wrong!</p>}
     </>

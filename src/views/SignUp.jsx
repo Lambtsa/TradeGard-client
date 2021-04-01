@@ -87,7 +87,7 @@ const SignUp = () => {
           Password
           <input className="form__input" id="password" type="password" value={userPassword} onChange={handlePasswordChange} placeholder="Enter passsword" required />
         </label>
-        <button className="form__btn" type="submit">Sign up</button>
+        <button className="primary__btn" type="submit">Sign up</button>
       </form>
       {error && <p>{errorMessage}</p>}
     </>

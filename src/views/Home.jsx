@@ -23,7 +23,7 @@ const Home = () => {
   }, []);
 
   return (
-    <section className="section__container">
+    <section>
       {fetchError && <p>Items could not be fetched</p>}
       {noItemError && <p>Oops! There are no items at the moment</p>}
       {!fetchError && items.length > 0 && (
