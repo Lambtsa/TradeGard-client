@@ -11,7 +11,7 @@ const ItemCard = ({ item }) => (
       <p className="ItemCard__category">{item.itemCategory}</p>
       <p className="ItemCard__description">{item.itemDescription}</p>
     </div>
-    <FontAwesomeIcon icon={outlineHeart} className="ItemCard__heart" />
+    <FontAwesomeIcon icon={outlineHeart} className="icon__heart--outline" />
   </li>
 );
 

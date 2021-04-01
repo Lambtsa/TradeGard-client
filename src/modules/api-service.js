@@ -4,6 +4,8 @@ const baseUrl = process.env.NODE_ENV === 'production'
 
 const fetchAllProducts = () => fetch(`${baseUrl}api/items`);
 
+const fetchProductById = id => fetch(`${baseUrl}api/items/${id}`);
+
 const postItemToAPI = (newItem, accessToken) => fetch(`${baseUrl}api/items`, {
   method: 'POST',
   headers: {
@@ -25,4 +27,5 @@ module.exports = {
   fetchAllProducts,
   postItemToAPI,
   postNewUserToAPI,
+  fetchProductById,
 };
