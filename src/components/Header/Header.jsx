@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+import {
+  faSearch as searchIcon,
+  faPlusCircle as addIcon,
+  faExchangeAlt as swapIcon,
+  faHeart as heartIcon,
+  faUserCircle as accountIcon,
+} from '@fortawesome/free-solid-svg-icons';
+import NavLink from '../NavLink/NavLink';
 
 /* eslint-disable */
 const Header = () => {
@@ -24,13 +32,11 @@ const Header = () => {
     <header className="header">
       <div className="header__container">
         <nav className="header__nav">
-          <Link className="header__link" to="/">Browse</Link>
-          <Link className="header__link" to="/new-item">New Item</Link>
-          <Link className="header__link" to="/trading">Trading</Link>
-          <Link className="header__link" to="/likes">Likes</Link>
-          {authState.isAuthenticated && <Link className="header__link" to="/my-account">{displayName}</Link>}
-          {!authState.isAuthenticated && <Link className="header__link" to="/signup">SignUp</Link>}
-          {button}
+          <NavLink link="/" linkText="Browse" icon={searchIcon} />
+          <NavLink link="/new-item" linkText="New item" icon={addIcon} />
+          <NavLink link="/trading" linkText="Trading" icon={swapIcon} />
+          <NavLink link="/likes" linkText="Likes" icon={heartIcon} />
+          <NavLink link="/my-account" linkText={authState.isAuthenticated ? 'My account' : 'Login'} icon={accountIcon} />
         </nav>
       </div>
     </header>
