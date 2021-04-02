@@ -11,7 +11,7 @@ const SignInForm = () => {
   const handleFormSubmit = async event => {
     event.preventDefault();
     try {
-      const transaction = await oktaAuth.signIn({
+      const transaction = await oktaAuth.signInWithCredentials({
         username,
         password,
       });
