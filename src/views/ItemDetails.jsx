@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useOktaAuth } from '@okta/okta-react';
 import { useParams, Redirect } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart as outlineHeart } from '@fortawesome/free-regular-svg-icons';
@@ -11,6 +12,7 @@ import { fetchItemById } from '../modules/api-service';
 import ContactModal from '../components/ContactModal/ContactModal';
 
 const ItemDetails = () => {
+  const { authState } = useOktaAuth();
   const { id } = useParams();
   const [objectDetails, setObjectDetails] = useState({});
   const [error, setError] = useState(false);
@@ -18,7 +20,8 @@ const ItemDetails = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(async () => {
-    const response = await fetchItemById(id);
+    const { accessToken } = authState.accessToken;
+    const response = await fetchItemById(id, accessToken);
     if (!response.ok) {
       setIsLoading(false);
       setError(true);

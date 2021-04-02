@@ -32,12 +32,6 @@ const Home = () => {
     }
   }, [authState.isAuthenticated]);
 
-  const checkIfLiked = id => {
-    const liked = userLikes.includes(id);
-    console.log(liked);
-    return liked;
-  };
-
   return (
     <section>
       {fetchError && <p>Items could not be fetched</p>}
@@ -45,7 +39,7 @@ const Home = () => {
       {!fetchError && items.length > 0 && (
         <ul className="home__items-container">
           {items.map(item => (
-            <ItemCard key={item._id} item={item} likedOnRender={() => checkIfLiked(item._id)} />
+            <ItemCard key={item._id} item={item} userLikes={userLikes} />
           ))}
         </ul>
       )}
