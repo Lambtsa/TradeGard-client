@@ -1,21 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { useOktaAuth } from '@okta/okta-react';
 import { Link } from 'react-router-dom';
 import './ItemCard.scss';
 import LikeToggle from '../LikeToggle/LikeToggle';
+import { updateItemLike } from '../../modules/api-service';
 
-const ItemCard = ({ item }) => {
-  const [isLiked, setIsLiked] = useState(item.isLiked);
-
-  useEffect(() => {
-    console.log(isLiked);
-  }, [isLiked]);
+const ItemCard = ({ item, likedOnRender }) => {
+  const { authState } = useOktaAuth();
+  const [isLiked, setIsLiked] = useState(likedOnRender);
 
   const handleLikeToggle = () => {
+    const { accessToken } = authState.accessToken;
+
     // send like to server
     if (isLiked) {
-      setIsLiked(false);
+      updateItemLike(item._id, false, accessToken)
+        .then(() => setIsLiked(false));
     } else {
-      setIsLiked(true);
+      updateItemLike(item._id, true, accessToken)
+        .then(() => setIsLiked(true));
     }
   };
 
