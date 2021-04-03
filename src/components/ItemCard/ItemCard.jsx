@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import './ItemCard.scss';
 import LikeToggle from '../LikeToggle/LikeToggle';
 import { updateItemLike } from '../../modules/api-service';
@@ -22,13 +22,17 @@ const ItemCard = ({ item, userLikes }) => {
   }, [userLikes]);
 
   const handleLikeToggle = () => {
-    const { accessToken } = authState.accessToken;
-    if (isLiked) {
-      updateItemLike(item._id, false, accessToken)
-        .then(() => setIsLiked(false));
+    if (authState.isAuthenticated) {
+      const { accessToken } = authState.accessToken;
+      if (isLiked) {
+        updateItemLike(item._id, false, accessToken)
+          .then(() => setIsLiked(false));
+      } else {
+        updateItemLike(item._id, true, accessToken)
+          .then(() => setIsLiked(true));
+      }
     } else {
-      updateItemLike(item._id, true, accessToken)
-        .then(() => setIsLiked(true));
+      <Redirect to={{ pathname: '/login' }} />;
     }
   };
 
