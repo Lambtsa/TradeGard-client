@@ -1,5 +1,7 @@
 # Three Musketeers Trading App Front end Repo
-Welome to the Three Musketeers' trading app. This is the application we built as a graduation project for the </SALT> Applied School of Technology. Our strong beliefs in responsible consumption and minimalism led us to create and application that would allow users to swap items by matching users that mutually liked each others items.  
+Welome to the Three Musketeers' trading app. This is the application we built as a graduation project for the </SALT> Applied School of Technology. Our strong beliefs in responsible consumption and minimalism led us to create and application that would allow users to swap items by matching users that mutually liked each others items. 
+
+This is the Front end application built using React Create App.
 
 ## Who are we ?
 - [Mina Hosseini](https://github.com/mina-h)
