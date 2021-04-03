@@ -14,16 +14,20 @@ const ImageSlot = props => {
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    console.log(slot - 1);
-    console.log(itemImages[slot - 1]);
-  }, [imageUrl]);
+    setImageUrl(itemImages[slot - 1] || '');
+  }, [itemImages]);
 
   const addImageUrl = (array, url, imageNumber) => {
     if (array.length >= 6) {
       setItemImages(array.splice((imageNumber - 1), 1, url));
     } else {
-      setItemImages(array.push(url));
+      setItemImages([...itemImages, url]);
     }
+  };
+
+  const removeImageUrl = (array, image) => {
+    const newArray = array.filter(item => item !== image);
+    setItemImages(newArray);
   };
 
   const handleFileChange = e => {
@@ -39,15 +43,14 @@ const ImageSlot = props => {
       .then(response => response.json())
       .then(data => {
         addImageUrl(itemImages, data.secure_url, slot - 1);
-        setImageUrl(data.secure_url);
       })
-      .catch(err => {
-        console.log(err);
+      .catch(() => {
         setError(true);
       });
   };
 
   const handleDeleteClick = () => {
+    removeImageUrl(itemImages, imageUrl);
     setImageUrl('');
   };
 
