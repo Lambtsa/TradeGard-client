@@ -20,6 +20,7 @@
 }
 .form__img::before {
   font-family: 'Font Awesome 5 Free';
+  // content: '';
   content: '\f030 \A Add picture';
   font-weight: 700;
   font-size: 1rem;
@@ -32,6 +33,7 @@
   align-items: center;
   text-align: center;
   background-color: $white;
+  // background-image: url('../../assets/addPicture.png');
   width: 100%;
   height: 100%;
   position: absolute;

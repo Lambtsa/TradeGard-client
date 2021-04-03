@@ -9,7 +9,6 @@ import { Security, SecureRoute, LoginCallback } from '@okta/okta-react';
 import { OktaAuth, toRelativeUrl } from '@okta/okta-auth-js';
 
 import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
 import SignIn from './components/SignIn/SignIn';
 
 import Home from './views/Home';
@@ -52,7 +51,6 @@ function AppWithRouterAccess() {
           <Route path="/items/:id" component={ItemDetails} />
         </Switch>
       </main>
-      <Footer />
     </Security>
   );
 }

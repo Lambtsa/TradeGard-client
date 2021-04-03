@@ -62,6 +62,8 @@ const SignUp = () => {
 
   return (
     <>
+      <h1 className="form__title">Sign up</h1>
+      <p className="form__subtitle">Enter your details to start swapping</p>
       <form className="form" onSubmit={handleFormSubmit}>
         <label className="form__label" htmlFor="first-name">
           First name

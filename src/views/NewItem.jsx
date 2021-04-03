@@ -46,6 +46,7 @@ const NewItem = () => {
   return (
     <>
       <h1 className="form__title">Post a new item</h1>
+      <p className="form__subtitle">A few seconds away from sharing</p>
       <form className="form" onSubmit={handleFormSubmit}>
         <label className="form__label" htmlFor="title">
           Item Title:
@@ -63,7 +64,7 @@ const NewItem = () => {
           <ImageSlot state={{ itemImages, setItemImages }} itemTitle={itemTitle} slot="5" />
           <ImageSlot state={{ itemImages, setItemImages }} itemTitle={itemTitle} slot="6" />
         </div>
-        <label className="form__label" htmlFor="category">
+        <label className="form__label select" htmlFor="category">
           Item Category:
           <select className="form__input select" id="category" value={itemCategory} onChange={onCategoryChange} required>
             <option value="">Please select category</option>
