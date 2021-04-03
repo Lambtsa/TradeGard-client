@@ -29,12 +29,12 @@ main {
 
 .btn__close {
   position: absolute;
-  right: 1rem;
-  top: 1rem;
+  right: .5rem;
+  top: .5rem;
 }
 
 .icon__delete {
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: black;
   
 }
@@ -105,6 +105,7 @@ main {
   display: flex;
   flex-direction: column;
   color: $grey;
+  position: relative;
 }
 .form__input {
   border: 1px solid $grey;
@@ -126,11 +127,30 @@ main {
 .form__signup--link {
   color: $primaryColor;
 }
+.form__image--container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: .5rem;
+  margin-bottom: 1rem;
+}
 .primary__btn {
   padding: 1rem;
-  border: none;
+  border: 2px solid $primaryColor;
   background-color: $primaryColor;
-  color: white;
+  color: $white;
+  font-weight: 700;
+  border-radius: 4px;
+  width: 100%;
+  margin: .5rem 0;
+  &:hover {
+    background-color: darken($primaryColor, 10%);
+  }
+}
+.secondary__btn {
+  padding: 1rem;
+  border: 2px solid $primaryColor;
+  background-color: $white;
+  color: $primaryColor;
   font-weight: 700;
   border-radius: 4px;
   width: 100%;

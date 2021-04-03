@@ -1,24 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useOktaAuth } from '@okta/okta-react';
 import SnackBar from '../SnackBar/SnackBar';
 
 const SignInForm = () => {
   const [error, setError] = useState(false);
-  const [isValid, setIsValid] = useState(false);
   const { oktaAuth } = useOktaAuth();
   const [sessionToken, setSessionToken] = useState();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-
-  useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      setError(false);
-    }, 3000);
-    return () => {
-      clearTimeout(timeoutId);
-    };
-  }, [error]);
 
   const handleFormSubmit = async event => {
     event.preventDefault();
@@ -33,14 +23,11 @@ const SignInForm = () => {
           sessionToken: transaction.sessionToken,
         });
         setError(false);
-        setIsValid(true);
       } else {
         setError(true);
-        setIsValid(false);
       }
     } catch (err) {
       setError(true);
-      setIsValid(false);
     }
   };
 
@@ -93,13 +80,6 @@ const SignInForm = () => {
           setState={setError}
           type="error"
           message="Oops! Something went wrong!" />
-      )}
-      {isValid && (
-        <SnackBar
-          state={isValid}
-          setState={setIsValid}
-          type="success"
-          message="Your login is successful" />
       )}
     </>
   );
