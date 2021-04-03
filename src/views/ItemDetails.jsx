@@ -20,17 +20,19 @@ const ItemDetails = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(async () => {
-    const { accessToken } = authState.accessToken;
-    const response = await fetchItemById(id, accessToken);
-    if (!response.ok) {
-      setIsLoading(false);
-      setError(true);
-    } else {
-      const details = await response.json();
-      setObjectDetails(details);
-      setIsLoading(false);
+    if (authState.accessToken) {
+      const { accessToken } = authState.accessToken;
+      const response = await fetchItemById(id, accessToken);
+      if (!response.ok) {
+        setIsLoading(false);
+        setError(true);
+      } else {
+        const details = await response.json();
+        setObjectDetails(details);
+        setIsLoading(false);
+      }
     }
-  }, []);
+  }, [authState.isAuthenticated]);
 
   const handleButtonClick = () => {
     setShowModal(true);
@@ -59,7 +61,7 @@ const ItemDetails = () => {
             <p>{new Date(objectDetails.itemCreationDateUTC).toLocaleString()}</p>
           </div>
           <p className="details__description">{objectDetails.itemDescription}</p>
-          <div className="details__caption">
+          <div className="details__caption--posted">
             <FontAwesomeIcon icon={userIcon} className="details__caption-icon" />
             <p>
               {`Posted by: ${objectDetails.itemOwner.userDisplayName}`}

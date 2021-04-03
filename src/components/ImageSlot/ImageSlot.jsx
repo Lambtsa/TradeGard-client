@@ -1,14 +1,37 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle as deleteIcon } from '@fortawesome/free-solid-svg-icons';
 import './ImageSlot.scss';
 
-const ImageSlot = ({ itemTitle = '', setItemImages }) => {
+const ImageSlot = props => {
+  const {
+    itemTitle = '',
+    state,
+    slot,
+  } = props;
+  const { itemImages, setItemImages } = state;
   const [imageUrl, setImageUrl] = useState('');
   const [error, setError] = useState(false);
 
+  useEffect(() => {
+    setImageUrl(itemImages[slot - 1] || '');
+  }, [itemImages]);
+
+  const addImageUrl = (array, url, imageNumber) => {
+    if (array.length >= 6) {
+      setItemImages(array.splice((imageNumber - 1), 1, url));
+    } else {
+      setItemImages([...itemImages, url]);
+    }
+  };
+
+  const removeImageUrl = (array, image) => {
+    const newArray = array.filter(item => item !== image);
+    setItemImages(newArray);
+  };
+
   const handleFileChange = e => {
-    const url = 'https://api.cloudinary.com/v1_1/dk9je5ll6/upload';
+    const url = 'https://api.cloudinary.com/v1_1/dnxtp3xmi/upload';
     const file = e.target.files[0];
     const formData = new FormData();
     formData.append('upload_preset', 'trading-app');
@@ -19,13 +42,15 @@ const ImageSlot = ({ itemTitle = '', setItemImages }) => {
     })
       .then(response => response.json())
       .then(data => {
-        setImageUrl(data.secure_url);
-        setItemImages(prevState => [...prevState, data.secure_url]);
+        addImageUrl(itemImages, data.secure_url, slot - 1);
       })
-      .catch(() => setError(true));
+      .catch(() => {
+        setError(true);
+      });
   };
 
   const handleDeleteClick = () => {
+    removeImageUrl(itemImages, imageUrl);
     setImageUrl('');
   };
 

@@ -13,15 +13,12 @@ const Home = () => {
 
   useEffect(async () => {
     let accessToken;
-    console.log(authState.isAuthenticated, 'auth status');
     if (authState.isAuthenticated) {
       accessToken = authState.accessToken.accessToken;
-      console.log(accessToken);
     }
     const response = await fetchAllItems(accessToken);
     if (response.ok) {
       const fetchedData = await response.json();
-      console.log(fetchedData);
       if (fetchedData.items.length === 0) {
         setnoItemError(true);
       }

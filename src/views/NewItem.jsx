@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
 import { postItemToAPI } from '../modules/api-service';
 import ImageSlot from '../components/ImageSlot/ImageSlot';
+import SnackBar from '../components/SnackBar/SnackBar';
 
 const NewItem = () => {
   const { authState } = useOktaAuth();
@@ -9,7 +10,7 @@ const NewItem = () => {
   const [itemDescription, setItemDescription] = useState('');
   const [itemImages, setItemImages] = useState([]);
   const [itemCategory, setItemCategory] = useState('');
-  const [message, setMessage] = useState('');
+  const [isValid, setIsValid] = useState(false);
 
   const onTitleChange = e => setItemTitle(e.target.value);
   const onDescriptionChange = e => setItemDescription(e.target.value);
@@ -29,13 +30,13 @@ const NewItem = () => {
     };
     try {
       const response = await postItemToAPI(newItem, accessToken);
-      const data = await response.json();
-      console.log(data);
+      await response.json();
+      window.scrollTo(0, 0);
+      setIsValid(true);
       setItemTitle('');
       setItemDescription('');
       setItemImages([]);
       setItemCategory('');
-      setMessage('Your Item has been added');
     } catch (err) {
       /* better error handling */
       console.log(err);
@@ -44,6 +45,8 @@ const NewItem = () => {
 
   return (
     <>
+      <h1 className="form__title">Post a new item</h1>
+      <p className="form__subtitle">A few seconds away from sharing</p>
       <form className="form" onSubmit={handleFormSubmit}>
         <label className="form__label" htmlFor="title">
           Item Title:
@@ -53,18 +56,31 @@ const NewItem = () => {
           Item Description:
           <input className="form__input" id="description" type="text" value={itemDescription} onChange={onDescriptionChange} placeholder="Enter description" required />
         </label>
-        <ImageSlot setItemImages={setItemImages} itemTitle={itemTitle} />
-        <label className="form__label" htmlFor="category">
+        <div className="form__image--container">
+          <ImageSlot state={{ itemImages, setItemImages }} itemTitle={itemTitle} slot="1" />
+          <ImageSlot state={{ itemImages, setItemImages }} itemTitle={itemTitle} slot="2" />
+          <ImageSlot state={{ itemImages, setItemImages }} itemTitle={itemTitle} slot="3" />
+          <ImageSlot state={{ itemImages, setItemImages }} itemTitle={itemTitle} slot="4" />
+          <ImageSlot state={{ itemImages, setItemImages }} itemTitle={itemTitle} slot="5" />
+          <ImageSlot state={{ itemImages, setItemImages }} itemTitle={itemTitle} slot="6" />
+        </div>
+        <label className="form__label select" htmlFor="category">
           Item Category:
-          <select className="form__input" id="category" value={itemCategory} onChange={onCategoryChange} required>
+          <select className="form__input select" id="category" value={itemCategory} onChange={onCategoryChange} required>
             <option value="">Please select category</option>
             <option value="furniture">Furniture</option>
             <option value="clothes">Clothes</option>
             <option value="books">Books</option>
           </select>
         </label>
-        <button className="form__btn" type="submit">Add item</button>
-        {message !== '' && <p className="snack-message">{message}</p>}
+        <button className="primary__btn" type="submit">Add item</button>
+        {isValid && (
+          <SnackBar
+            state={isValid}
+            setState={setIsValid}
+            type="success"
+            message="Congratulations! Your item has been posted." />
+        )}
       </form>
     </>
   );
