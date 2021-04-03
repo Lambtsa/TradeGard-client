@@ -2,9 +2,9 @@
 Welome to the Three Musketeers' trading app. This is the application we built as a graduation project for the </SALT> Applied School of Technology. Our strong beliefs in responsible consumption and minimalism led us to create and application that would allow users to swap items by matching users that mutually liked each others items.  
 
 ## Who are we ?
-- [https://github.com/mina-h](Mina Hosseini)
-- [https://github.com/qvistdev09](Oscar Lindqvist)
-- [https://github.com/Lambtsa](Tom Lamb)
+- Mina Hosseini[https://github.com/mina-h](Profile)
+- Oscar Lindqvist[https://github.com/qvistdev09](Profile)
+- Tom Lamb[https://github.com/Lambtsa](Profile)
 
 ## Key Features
 - What users can do: 
@@ -20,7 +20,7 @@ Welome to the Three Musketeers' trading app. This is the application we built as
 - Linting with Eslint using a SALT specific config
 - Testing using JEST and react testing library
 - Styling done with sass
-- All icons are from [https://fontawesome.com/](fontawesome)
+- All icons are from (fontawesome)[https://fontawesome.com/]
 
 ## How to use
 
