@@ -1,25 +1,37 @@
 @import '../../styles/variables.scss';
 
-.ItemCard {
+.itemCard {
   padding: 1rem;
+  margin:  0 -1rem;
   display: flex;
   align-items: center;
-}
+  box-shadow: 0 0 1px $grey;
 
-.ItemCard:nth-child(even) {
-  background-color: $card-bg-light;
 }
-
-.ItemCard:nth-child(odd) {
-  background-color: $card-bg-dark;
-}
-
-.ItemCard__details {
+.itemCard__container {
+  display: flex;
   flex: 1;
-  padding: 1rem;
+  align-items: center;
+  height: 100%;
+}
+.itemCard:nth-child(even) {
+  background-color: #f1f1f1;
 }
 
-.ItemCard__image {
+.itemCard:nth-child(odd) {
+  background-color: #fefefe;
+}
+
+.itemCard__details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  padding: .5rem 1rem;
+  height: 100%;
+}
+
+.itemCard__image {
   min-width: 100px;
   width: 100px;
   height: 100px;
@@ -27,11 +39,14 @@
   object-fit: cover;
   border-radius: 4px;
 }
-.ItemCard__category {
-  font-size: .8rem;
-  margin-bottom: .5rem;
+.itemCard__title {
+  display: inline-block;
+  color: $black;
+  font-size: 1.2rem;
+  text-transform: capitalize;
 }
-.fa-heart {
-  font-size: 1.5rem;
-  color: red;
+.itemCard__subtitle {
+  text-transform: capitalize;
+  font-size: .9rem;
+  color: $grey;
 }

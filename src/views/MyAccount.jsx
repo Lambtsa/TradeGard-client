@@ -1,6 +1,15 @@
 import React from 'react';
-import './MyAccount.scss';
+import { useOktaAuth } from '@okta/okta-react';
 
-const MyAcccount = () => <p>Some secret, protected stuff</p>;
+const MyAcccount = () => {
+  const { oktaAuth } = useOktaAuth();
+
+  return (
+    <>
+      <p>Some secret, protected stuff</p>
+      <button type="button" className="secondary__btn" onClick={() => oktaAuth.signOut()}>Logout</button>
+    </>
+  );
+};
 
 export default MyAcccount;
