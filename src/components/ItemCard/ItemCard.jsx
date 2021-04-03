@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import './ItemCard.scss';
 import LikeToggle from '../LikeToggle/LikeToggle';
 import { updateItemLike } from '../../modules/api-service';
 
 const ItemCard = ({ item, userLikes }) => {
+  const history = useHistory();
   const dateOptions = {
     year: 'numeric',
     month: 'long',
@@ -32,7 +33,7 @@ const ItemCard = ({ item, userLikes }) => {
           .then(() => setIsLiked(true));
       }
     } else {
-      <Redirect to={{ pathname: '/login' }} />;
+      history.push('/login');
     }
   };
 
