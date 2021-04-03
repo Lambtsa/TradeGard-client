@@ -2,9 +2,9 @@
 Welome to the Three Musketeers' trading app. This is the application we built as a graduation project for the </SALT> Applied School of Technology. Our strong beliefs in responsible consumption and minimalism led us to create and application that would allow users to swap items by matching users that mutually liked each others items.  
 
 ## Who are we ?
-- Mina Hosseini[https://github.com/mina-h](Profile)
-- Oscar Lindqvist[https://github.com/qvistdev09](Profile)
-- Tom Lamb[https://github.com/Lambtsa](Profile)
+- Mina Hosseini [Profile](https://github.com/mina-h)
+- Oscar Lindqvist [Profile](https://github.com/qvistdev09)
+- Tom Lamb [Profile](https://github.com/Lambtsa)
 
 ## Key Features
 - What users can do: 
@@ -20,7 +20,7 @@ Welome to the Three Musketeers' trading app. This is the application we built as
 - Linting with Eslint using a SALT specific config
 - Testing using JEST and react testing library
 - Styling done with sass
-- All icons are from (fontawesome)[https://fontawesome.com/]
+- All icons are from [fontawesome](https://fontawesome.com/)
 
 ## How to use
 
@@ -45,13 +45,13 @@ It correctly bundles React in production mode and optimizes the build for the be
 ## Credits
 
 This software uses the following packages:
-- [https://github.com/facebook/create-react-app](Create React App)
-- [https://fontawesome.com/how-to-use/on-the-web/using-with/react](Font Awesome components)
-- [https://github.com/saltswap/eslint-config-salt](Eslint Config SALT)
-- [https://github.com/sass/node-sass](Node sass)
-- [https://reactrouter.com/web/guides/quick-start](React router dom)
-- [https://github.com/okta/okta-react](Okta react)
-- [https://github.com/okta/okta-auth-js](Okta auth)
+- [Create React App](https://github.com/facebook/create-react-app)
+- [Font Awesome components](https://fontawesome.com/how-to-use/on-the-web/using-with/react)
+- [Eslint Config SALT](https://github.com/saltswap/eslint-config-salt)
+- [Node sass](https://github.com/sass/node-sass)
+- [React router dom](https://reactrouter.com/web/guides/quick-start)
+- [Okta react](https://github.com/okta/okta-react)
+- [Okta auth](https://github.com/okta/okta-auth-js)
 
 ## Related 
-[https://github.com/Lambtsa/trading-app-server](Trading app Nodejs/Express Rest API)
+[Trading app Nodejs/Express Rest API](https://github.com/Lambtsa/trading-app-server)
