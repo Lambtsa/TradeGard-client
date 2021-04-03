@@ -2,9 +2,9 @@
 Welome to the Three Musketeers' trading app. This is the application we built as a graduation project for the </SALT> Applied School of Technology. Our strong beliefs in responsible consumption and minimalism led us to create and application that would allow users to swap items by matching users that mutually liked each others items.  
 
 ## Who are we ?
-- Mina Hosseini [Profile](https://github.com/mina-h)
-- Oscar Lindqvist [Profile](https://github.com/qvistdev09)
-- Tom Lamb [Profile](https://github.com/Lambtsa)
+- [Mina Hosseini](https://github.com/mina-h)
+- [Oscar Lindqvist](https://github.com/qvistdev09)
+- [Tom Lamb](https://github.com/Lambtsa)
 
 ## Key Features
 - What users can do: 
