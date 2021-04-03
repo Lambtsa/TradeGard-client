@@ -20,7 +20,6 @@ const NewItem = () => {
     // validate inputs and output potential issues
     e.preventDefault();
     const { accessToken } = authState.accessToken;
-    console.log(itemImages);
     const newItem = {
       item: {
         itemTitle,
@@ -32,6 +31,7 @@ const NewItem = () => {
     try {
       const response = await postItemToAPI(newItem, accessToken);
       await response.json();
+      window.scrollTo(0, 0);
       setIsValid(true);
       setItemTitle('');
       setItemDescription('');

@@ -59,7 +59,7 @@ const ItemDetails = () => {
             <p>{new Date(objectDetails.itemCreationDateUTC).toLocaleString()}</p>
           </div>
           <p className="details__description">{objectDetails.itemDescription}</p>
-          <div className="details__caption">
+          <div className="details__caption--posted">
             <FontAwesomeIcon icon={userIcon} className="details__caption-icon" />
             <p>
               {`Posted by: ${objectDetails.itemOwner.userDisplayName}`}

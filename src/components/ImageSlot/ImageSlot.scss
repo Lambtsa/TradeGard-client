@@ -1,7 +1,7 @@
 @import '../../styles/variables.scss';
 .ImageSlot__container {
   position: relative;
-  height: 120px;
+  height: 80px;
 }
 .ImageSlot__img {
   width: 100%;
@@ -12,6 +12,7 @@
 }
 .form__img--wrapper {
   position: relative;
+  height: 80px;
 }
 .form__img {
   padding: 3rem 1rem;
@@ -19,9 +20,9 @@
 }
 .form__img::before {
   font-family: 'Font Awesome 5 Free';
-  content: '\f030 \A Add Picture';
-  font-weight: 900;
-  font-size: 1.4rem;
+  content: '\f030 \A Add picture';
+  font-weight: 700;
+  font-size: 1rem;
   cursor: pointer;
   display: flex;
   color: $grey;
