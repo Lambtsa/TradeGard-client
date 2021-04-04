@@ -311,6 +311,12 @@ main {
   font-size: 2rem;
   color: $black;
 }
+.carousel__number {
+  text-align: right;
+  margin-right: 1rem;
+  font-weight: 700;
+  font-size: .8rem;
+}
 .carousel__img {
   width: 100%;
   display: block;

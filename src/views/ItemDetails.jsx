@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
 import { useParams, Redirect } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart as outlineHeart } from '@fortawesome/free-regular-svg-icons';
 import {
   faMapMarkerAlt as mapMarker,
   faClock as clock,
@@ -11,6 +10,7 @@ import {
 import { fetchItemById } from '../modules/api-service';
 import ContactModal from '../components/ContactModal/ContactModal';
 import ImageCarousel from '../components/ImageCarousel/ImageCarousel';
+import LikeToggle from '../components/LikeToggle/LikeToggle';
 
 const ItemDetails = () => {
   const { authState } = useOktaAuth();
@@ -58,12 +58,10 @@ const ItemDetails = () => {
       {isLoading && <p>Loading details...</p>}
       {!isLoading && (
         <article className="details">
-          {/* <img className="details__img"
-          src={objectDetails.itemImages[0]} alt={objectDetails.itemTitle} /> */}
           <ImageCarousel images={objectDetails.itemImages} />
           <div className="details__title-container">
             <h2 className="details__title">{objectDetails.itemTitle}</h2>
-            <FontAwesomeIcon icon={outlineHeart} className="icon__heart--outline" />
+            <LikeToggle />
           </div>
           <div className="details__caption">
             <FontAwesomeIcon icon={mapMarker} className="details__caption-icon" />
