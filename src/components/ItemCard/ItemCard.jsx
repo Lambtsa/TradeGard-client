@@ -22,7 +22,9 @@ const ItemCard = ({ item, userLikes }) => {
   }, [userLikes]);
 
   const handleLikeToggle = () => {
+    console.log('clicked');
     if (authState.isAuthenticated) {
+      console.log('auth');
       const { accessToken } = authState.accessToken;
       if (isLiked) {
         updateItemLike(item._id, false, accessToken)
@@ -32,6 +34,7 @@ const ItemCard = ({ item, userLikes }) => {
           .then(() => setIsLiked(true));
       }
     } else {
+      console.log('not auth');
       history.push('/login');
     }
   };

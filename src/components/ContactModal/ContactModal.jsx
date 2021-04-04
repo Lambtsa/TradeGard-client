@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle as deleteIcon } from '@fortawesome/free-solid-svg-icons';
 
@@ -8,6 +8,11 @@ const ContactModal = ({ ownerDetails, setShowModal }) => {
     userEmail,
     userTelephone,
   } = ownerDetails;
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <section className="modal">
       <div className="modal__inner">
@@ -18,7 +23,7 @@ const ContactModal = ({ ownerDetails, setShowModal }) => {
         {userTelephone !== '' && (
           <>
             <h3 className="modal__subtitle">Phone</h3>
-            <p className="modal__info">{userTelephone}</p>
+            <a className="modal__info--link" href={`tel:${userTelephone}`}>{userTelephone}</a>
           </>
         )}
         <button type="button" className="btn__close" onClick={() => setShowModal(false)}>
