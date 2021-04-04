@@ -44,7 +44,7 @@ const NewItem = () => {
   };
 
   return (
-    <>
+    <section className="form__container">
       <h1 className="form__title">Post a new item</h1>
       <p className="form__subtitle">A few seconds away from sharing</p>
       <form className="form" onSubmit={handleFormSubmit}>
@@ -82,7 +82,7 @@ const NewItem = () => {
             message="Congratulations! Your item has been posted." />
         )}
       </form>
-    </>
+    </section>
   );
 };
 

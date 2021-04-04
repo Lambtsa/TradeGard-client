@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useOktaAuth } from '@okta/okta-react';
 import { postNewUserToAPI } from '../modules/api-service';
 
@@ -61,7 +62,7 @@ const SignUp = () => {
   };
 
   return (
-    <>
+    <section className="form__container">
       <h1 className="form__title">Sign up</h1>
       <p className="form__subtitle">Enter your details to start swapping</p>
       <form className="form" onSubmit={handleFormSubmit}>
@@ -90,9 +91,13 @@ const SignUp = () => {
           <input className="form__input" id="password" type="password" value={userPassword} onChange={handlePasswordChange} placeholder="Enter passsword" required />
         </label>
         <button className="primary__btn" type="submit">Sign up</button>
+        <p className="form__signup--text">
+          You already have an account?
+          <Link className="form__signup--link" to="/login"> Login</Link>
+        </p>
       </form>
       {error && <p>{errorMessage}</p>}
-    </>
+    </section>
   );
 };
 

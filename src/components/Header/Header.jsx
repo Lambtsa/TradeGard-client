@@ -9,6 +9,7 @@ import {
   faUserCircle as accountIcon,
 } from '@fortawesome/free-solid-svg-icons';
 import NavLink from '../NavLink/NavLink';
+import moustache from '../../assets/moustache.svg';
 
 /* eslint-disable */
 const Header = () => {
@@ -31,6 +32,7 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header__container">
+        <img className="header__img" src={moustache} alt="Moustache black" />
         <nav className="header__nav">
           <NavLink link="/" linkText="Browse" icon={searchIcon} />
           <NavLink link="/new-item" linkText="New item" icon={addIcon} />

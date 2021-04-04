@@ -24,9 +24,11 @@ const SignInForm = () => {
         });
         setError(false);
       } else {
+        window.scrollTo(0, 0);
         setError(true);
       }
     } catch (err) {
+      window.scrollTo(0, 0);
       setError(true);
     }
   };
@@ -44,7 +46,7 @@ const SignInForm = () => {
   }
 
   return (
-    <>
+    <section className="form__container">
       <h1 className="form__title">Login</h1>
       <p className="form__subtitle">Enter your email address and password</p>
       <form className="form" onSubmit={handleFormSubmit}>
@@ -81,7 +83,7 @@ const SignInForm = () => {
           type="error"
           message="Oops! Something went wrong!" />
       )}
-    </>
+    </section>
   );
 };
 

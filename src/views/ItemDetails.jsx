@@ -31,6 +31,16 @@ const ItemDetails = () => {
         setObjectDetails(details);
         setIsLoading(false);
       }
+    } else {
+      const response = await fetchItemById(id);
+      if (!response.ok) {
+        setIsLoading(false);
+        setError(true);
+      } else {
+        const details = await response.json();
+        setObjectDetails(details);
+        setIsLoading(false);
+      }
     }
   }, [authState.isAuthenticated]);
 
@@ -43,7 +53,7 @@ const ItemDetails = () => {
   }
 
   return (
-    <>
+    <section className="details__container">
       {isLoading && <p>Loading details...</p>}
       {!isLoading && (
         <article className="details">
@@ -73,7 +83,7 @@ const ItemDetails = () => {
       {showModal && (
         <ContactModal ownerDetails={objectDetails.itemOwner} setShowModal={setShowModal} />
       )}
-    </>
+    </section>
   );
 };
 

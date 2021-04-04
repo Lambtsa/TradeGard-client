@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
 import { Link, useHistory } from 'react-router-dom';
-import './ItemCard.scss';
 import LikeToggle from '../LikeToggle/LikeToggle';
 import { updateItemLike } from '../../modules/api-service';
 
@@ -44,14 +43,17 @@ const ItemCard = ({ item, userLikes }) => {
         <div className="itemCard__details">
           <div className="itemCard__primary">
             <h3 className="itemCard__title">{item.itemTitle}</h3>
-            <p className="itemCard__subtitle">{item.itemCategory}</p>
+            <p className="itemCard__subtitle category">{item.itemCategory}</p>
+            <p className="itemCard__subtitle description">{item.itemDescription}</p>
           </div>
-          <p className="itemCard__subtitle">
-            {`${item.itemCategory} - ${formattedDate}`}
-          </p>
+          <div className="itemCard__secondary">
+            <p className="itemCard__subtitle date">
+              {`${item.itemCategory} - ${formattedDate}`}
+            </p>
+            <LikeToggle isLiked={isLiked} handleLikeToggle={handleLikeToggle} />
+          </div>
         </div>
       </Link>
-      <LikeToggle isLiked={isLiked} handleLikeToggle={handleLikeToggle} />
     </li>
   );
 };

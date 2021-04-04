@@ -1,5 +1,4 @@
 import React from 'react';
-import './ContactModal.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle as deleteIcon } from '@fortawesome/free-solid-svg-icons';
 
