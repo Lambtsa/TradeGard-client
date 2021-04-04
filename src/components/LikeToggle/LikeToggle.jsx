@@ -11,7 +11,7 @@ const LikeToggle = ({ isLiked, handleLikeToggle }) => {
     console.log(authState.isAuthenticated);
   }
   return (
-    <button type="button" onClick={handleLikeToggle}>
+    <button className="icon__heart--btn" type="button" onClick={handleLikeToggle}>
       <FontAwesomeIcon icon={isLiked ? filledHeart : outlineHeart} className="icon__heart" />
     </button>
   );

@@ -10,6 +10,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { fetchItemById } from '../modules/api-service';
 import ContactModal from '../components/ContactModal/ContactModal';
+import ImageCarousel from '../components/ImageCarousel/ImageCarousel';
 
 const ItemDetails = () => {
   const { authState } = useOktaAuth();
@@ -31,6 +32,16 @@ const ItemDetails = () => {
         setObjectDetails(details);
         setIsLoading(false);
       }
+    } else {
+      const response = await fetchItemById(id);
+      if (!response.ok) {
+        setIsLoading(false);
+        setError(true);
+      } else {
+        const details = await response.json();
+        setObjectDetails(details);
+        setIsLoading(false);
+      }
     }
   }, [authState.isAuthenticated]);
 
@@ -43,11 +54,13 @@ const ItemDetails = () => {
   }
 
   return (
-    <>
+    <section className="details__container">
       {isLoading && <p>Loading details...</p>}
       {!isLoading && (
         <article className="details">
-          <img className="details__img" src={objectDetails.itemImages[0]} alt={objectDetails.itemTitle} />
+          {/* <img className="details__img"
+          src={objectDetails.itemImages[0]} alt={objectDetails.itemTitle} /> */}
+          <ImageCarousel images={objectDetails.itemImages} />
           <div className="details__title-container">
             <h2 className="details__title">{objectDetails.itemTitle}</h2>
             <FontAwesomeIcon icon={outlineHeart} className="icon__heart--outline" />
@@ -73,7 +86,7 @@ const ItemDetails = () => {
       {showModal && (
         <ContactModal ownerDetails={objectDetails.itemOwner} setShowModal={setShowModal} />
       )}
-    </>
+    </section>
   );
 };
 
