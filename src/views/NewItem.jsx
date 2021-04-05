@@ -54,7 +54,7 @@ const NewItem = () => {
         </label>
         <label className="form__label" htmlFor="description">
           Item Description:
-          <input className="form__input" id="description" type="text" value={itemDescription} onChange={onDescriptionChange} placeholder="Enter description" required />
+          <textarea className="form__input textarea" id="description" type="text" value={itemDescription} onChange={onDescriptionChange} placeholder="Enter description" required />
         </label>
         <div className="form__image--container">
           <ImageSlot state={{ itemImages, setItemImages }} itemTitle={itemTitle} slot="1" />

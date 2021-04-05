@@ -18,7 +18,7 @@ const Trades = () => {
   }, []);
 
   return (
-    <>
+    <section className="trades__container">
       {matches.length > 0 && (
         <ul>
           {matches.map(match => <MatchCard key={match.userDisplayName} matchDetails={match} />)}
@@ -31,7 +31,7 @@ const Trades = () => {
         </p>
       )}
       {error && <SnackBar state={error} setState={setError} type="error" message="There was an issue, please try again" />}
-    </>
+    </section>
   );
 };
 

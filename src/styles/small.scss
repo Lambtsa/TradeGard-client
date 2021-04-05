@@ -1,32 +1,40 @@
+h1 {
+  font-size: 1.8rem;
+  margin-bottom: .5rem;
+}
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: .5rem;
+}
 h3 {
+  font-size: 1.2rem;
   margin-bottom: .3rem;
 }
-
 a {
   text-decoration: none;
 }
 p {
   line-height: 1.2rem;
 }
-
 #root {
   display: grid;
   min-height: 100vh;
   grid-template-rows: auto 1fr auto;
 }
-
 main {
   width:100%;
   margin: 0 auto;
   padding: 3rem 0;
 }
-
 /*
   Icons
 */
+.icon__right-arrow {
+  font-size: 2rem;
+}
 .icon__heart {
   font-size: 1.5rem;
-  color: red;
+  color: $primaryColor;
 }
 
 .btn__close {
@@ -51,8 +59,8 @@ main {
   Header Component
 */
 .header {
-  background-color: $white;
-  box-shadow: 0px 0px 4px #25242249;
+  background-color: transparent;
+  box-shadow: 0px 0px 4px $grey;
   padding: .5rem 0;
 }
 .header__container {
@@ -61,9 +69,6 @@ main {
   max-width: 1140px;
   padding: 0 1rem;
   margin: 0 auto;
-}
-.header__logo {
-  max-width: 90px;
 }
 .header__nav {
   display: flex;
@@ -92,6 +97,45 @@ main {
 /*
   ImageSlot 
 */
+.ImageSlot__input-wrapper {
+  position: relative;
+  width: 100%;
+  height: 80px;
+  border: 1px solid $grey;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.ImageSlot__input {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+.ImageSlot__overlay {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: $grey;
+  gap: 0.5rem;
+  align-items: center;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.ImageSlot__prompt {
+  font-size: 0.9rem;
+  color: $grey;
+}
+.ImageSlot__camera {
+  font-size: 1.5rem;
+}
 .ImageSlot__container {
   position: relative;
   height: 80px;
@@ -102,36 +146,6 @@ main {
   object-fit: cover;
   object-position: center;
   border-radius: 4px;
-}
-.form__img--wrapper {
-  position: relative;
-  height: 80px;
-}
-.form__img {
-  padding: 3rem 1rem;
-  width: 100%;
-}
-.form__img::before {
-  font-family: 'Font Awesome 5 Free';
-  // content: '';
-  content: '\f030 \A Add picture';
-  font-weight: 700;
-  font-size: 1rem;
-  cursor: pointer;
-  display: flex;
-  color: $grey;
-  justify-content: center;
-  border: 1px solid $grey;
-  border-radius: 4px;
-  align-items: center;
-  text-align: center;
-  background-color: $white;
-  // background-image: url('../../assets/addPicture.png');
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
 }
 
 /*
@@ -175,6 +189,10 @@ main {
   border-radius: 4px;
   &::placeholder {
     color: $grey;
+  }
+  &.textarea {
+    resize: none;
+    height: 150px;
   }
 }
 .form__signup--text {
@@ -459,48 +477,42 @@ main {
   text-decoration: underline;
 }
 
-/* Image slot */
-
-.ImageSlot__input-wrapper {
-  position: relative;
-  width: 100%;
-  height: 80px;
-  border: 1px solid $grey;
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-.ImageSlot__input {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-}
-
-.ImageSlot__overlay {
-  background-color: white;
+/*
+  My account Component
+*/
+.account__container {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  color: $grey;
-  gap: 0.5rem;
+  padding: 1rem;
+  justify-content: space-between;
   align-items: center;
-  position: absolute;
-  top: 0px;
-  left: 0px;
   width: 100%;
-  height: 100%;
-  pointer-events: none;
+  box-shadow: 0 0 1px $grey;
+  h2 {
+    margin: 0;
+  }
 }
-
-.ImageSlot__prompt {
-  font-size: 0.9rem;
+.user {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+.user__circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-color: lighten($primaryColor, 10%);
+  color: $white;
+  font-weight: 700;
+  font-size: 1.5rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+.user__details {
+  padding: 0 1rem;
+  color: $black;
+}
+.user__subtitle {
   color: $grey;
 }
-
-.ImageSlot__camera {
-  font-size: 1.5rem;
-}
-

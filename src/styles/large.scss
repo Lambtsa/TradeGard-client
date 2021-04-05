@@ -12,14 +12,11 @@ main {
   Header Component
 */
 .header__nav {
-  display: flex;
-  flex: 1;
   justify-content: flex-end;
-  align-items: center;
 }
 .header__img {
   display: block;
-  width: 60px;
+  width: 45px;
 }
 
 /*
@@ -30,6 +27,10 @@ main {
   padding: 0;
   height: 100%;
   max-height: 400px;
+  border-radius: 4px;
+}
+.itemCard__img {
+  width: 100%;
 }
 .itemCard__container {
   display: flex;
@@ -49,6 +50,7 @@ main {
 .itemCard__details {
   display: flex;
   padding: 1rem;
+  justify-content: flex-start;
   padding-top: .5rem;
   width: 100%;
 }
@@ -79,6 +81,7 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: .5rem;
 }
 .icon__container {
   position: relative;
@@ -88,6 +91,7 @@ main {
 .icon__heart--btn {
   position: relative;
   right: 0;
+  top: 0;
 }
 
 /*
@@ -101,12 +105,11 @@ main {
 /* 
   ImageSlot
 */
-.form__img--wrapper {
+.ImageSlot__container {
   position: relative;
   height: 150px;
 }
-.ImageSlot__container {
-  position: relative;
+.ImageSlot__input-wrapper {
   height: 150px;
 }
 
@@ -163,9 +166,10 @@ main {
   color: black;
   text-decoration: underline;
 }
-
-/* Image slot */
-
-.ImageSlot__input-wrapper {
-  height: 150px;
+/*
+  Trades view
+*/
+.trades__container {
+  max-width: 768px;
+  margin: 0 auto;
 }

@@ -42,7 +42,7 @@ const ItemCard = ({ item, userLikes }) => {
   return (
     <li key={item._id} className="itemCard">
       <div className="itemCard__container">
-        <Link to={`/items/${item._id}`}>
+        <Link className="itemCard__img" to={`/items/${item._id}`}>
           <img src={item.itemImages[0]} alt={item.itemTitle} className="itemCard__image" />
         </Link>
         <div className="itemCard__details">
