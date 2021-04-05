@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimesCircle as deleteIcon } from '@fortawesome/free-solid-svg-icons';
+import { faTimesCircle as deleteIcon, faCamera as camera } from '@fortawesome/free-solid-svg-icons';
 import './ImageSlot.scss';
 
 const ImageSlot = props => {
@@ -65,8 +65,12 @@ const ImageSlot = props => {
         </div>
       )}
       {imageUrl === '' && (
-        <div className="form__img--wrapper">
-          <input className="form__img" type="file" onChange={handleFileChange} accept="image/png, image/jpeg" />
+        <div className="ImageSlot__input-wrapper">
+          <input className="ImageSlot__input" type="file" onChange={handleFileChange} accept="image/png, image/jpeg" />
+          <div className="ImageSlot__overlay">
+            <FontAwesomeIcon icon={camera} className="ImageSlot__camera" />
+            <p className="ImageSlot__prompt">Add image</p>
+          </div>
         </div>
       )}
       {error && <p className="error-message">There was an error in uploading your image</p>}
