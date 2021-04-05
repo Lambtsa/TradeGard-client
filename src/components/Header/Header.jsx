@@ -9,7 +9,7 @@ import {
   faUserCircle as accountIcon,
 } from '@fortawesome/free-solid-svg-icons';
 import NavLink from '../NavLink/NavLink';
-import moustache from '../../assets/moustache.svg';
+import moustache from '../../assets/moustacheIcon.svg';
 
 /* eslint-disable */
 const Header = () => {

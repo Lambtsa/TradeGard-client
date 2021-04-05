@@ -484,6 +484,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  color: $grey;
   gap: 0.5rem;
   align-items: center;
   position: absolute;
@@ -496,9 +497,10 @@ main {
 
 .ImageSlot__prompt {
   font-size: 0.9rem;
-  color: $black;
+  color: $grey;
 }
 
 .ImageSlot__camera {
   font-size: 1.5rem;
 }
+
