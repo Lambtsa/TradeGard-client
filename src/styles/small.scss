@@ -41,6 +41,7 @@ main {
   
 }
 .icon__heart--btn {
+  z-index: 500;
   position: absolute;
   right: 1rem;
   top: 40%;
@@ -86,6 +87,51 @@ main {
 }
 .header__img {
   display: none;
+}
+
+/*
+  ImageSlot 
+*/
+.ImageSlot__container {
+  position: relative;
+  height: 80px;
+}
+.ImageSlot__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 4px;
+}
+.form__img--wrapper {
+  position: relative;
+  height: 80px;
+}
+.form__img {
+  padding: 3rem 1rem;
+  width: 100%;
+}
+.form__img::before {
+  font-family: 'Font Awesome 5 Free';
+  // content: '';
+  content: '\f030 \A Add picture';
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  color: $grey;
+  justify-content: center;
+  border: 1px solid $grey;
+  border-radius: 4px;
+  align-items: center;
+  text-align: center;
+  background-color: $white;
+  // background-image: url('../../assets/addPicture.png');
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 /*

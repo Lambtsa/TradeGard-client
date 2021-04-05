@@ -41,8 +41,10 @@ const ItemCard = ({ item, userLikes }) => {
 
   return (
     <li key={item._id} className="itemCard">
-      <Link className="itemCard__container" to={`/items/${item._id}`}>
-        <img src={item.itemImages[0]} alt={item.itemTitle} className="itemCard__image" />
+      <div className="itemCard__container">
+        <Link to={`/items/${item._id}`}>
+          <img src={item.itemImages[0]} alt={item.itemTitle} className="itemCard__image" />
+        </Link>
         <div className="itemCard__details">
           <div className="itemCard__primary">
             <h3 className="itemCard__title">{item.itemTitle}</h3>
@@ -56,7 +58,7 @@ const ItemCard = ({ item, userLikes }) => {
             <LikeToggle isLiked={isLiked} handleLikeToggle={handleLikeToggle} />
           </div>
         </div>
-      </Link>
+      </div>
     </li>
   );
 };
