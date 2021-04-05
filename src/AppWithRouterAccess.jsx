@@ -16,6 +16,7 @@ import MyAccount from './views/MyAccount';
 import NewItem from './views/NewItem';
 import SignUp from './views/SignUp';
 import ItemDetails from './views/ItemDetails';
+import NotFound from './views/NotFound';
 
 function AppWithRouterAccess() {
   const history = useHistory();
@@ -48,7 +49,8 @@ function AppWithRouterAccess() {
           <SecureRoute exact path="/my-account" component={MyAccount} />
           <SecureRoute exact path="/new-item" component={NewItem} />
           <Route exact path="/signup" component={SignUp} />
-          <Route path="/items/:id" component={ItemDetails} />
+          <Route exact path="/items/:id" component={ItemDetails} />
+          <Route path="/" component={NotFound} />
         </Switch>
       </main>
     </Security>
