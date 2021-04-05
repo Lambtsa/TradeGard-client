@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight as rightArrow } from '@fortawesome/free-solid-svg-icons';
-import Loader from '../components/Loader/Loader';
+import Loader from '../components/loader/Loader';
 
 const MyAcccount = () => {
   const { oktaAuth } = useOktaAuth();
@@ -28,7 +28,7 @@ const MyAcccount = () => {
       {isLoading && <Loader />}
       {error && <p>error</p>}
       {!isLoading && (
-        <section className="">
+        <section className="account">
           <div className="user">
             <p className="user__circle">{`${user.given_name[0].toUpperCase()}${user.family_name[0].toUpperCase()}`}</p>
             <div className="user__details">

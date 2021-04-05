@@ -65,7 +65,15 @@ main {
   padding: 7px 12px;
   color: $white;
   border-radius: 20px;
-  background-color: #B51AC3;
+  &.furniture {
+    background-color: #B51AC3;
+  }
+  &.clothes {
+    background-color: #3CC31A;
+  }
+  &.computers {
+    background-color: #61b1fc;
+  }
 }
 .itemCard__image {
   width: 100%;
@@ -170,6 +178,14 @@ main {
   Trades view
 */
 .trades__container {
+  max-width: 768px;
+  margin: 0 auto;
+}
+
+/*
+  My account Components
+*/
+.account {
   max-width: 768px;
   margin: 0 auto;
 }

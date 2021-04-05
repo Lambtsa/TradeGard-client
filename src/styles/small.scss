@@ -221,7 +221,8 @@ main {
   width: 100%;
   margin: .5rem 0;
   &:hover {
-    background-color: darken($primaryColor, 10%);
+    background-color: darken($primaryColor, 5%);
+    border: 2px solid darken($primaryColor, 5%);
   }
 }
 .secondary__btn {
@@ -312,6 +313,7 @@ main {
 */
 .details__container {
   padding: 0 1rem;
+  margin: 0 auto;
 }
 .details {
   padding: 1rem 0;
@@ -434,9 +436,10 @@ main {
   Footer Component
 */
 .footer {
-  background-color: $nav-bg;
+  background-color: $grey;
   text-align: center;
-  padding: 2rem 0;
+  font-size: .9rem;
+  padding: 1rem 0;
 }
 
 /*

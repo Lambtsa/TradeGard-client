@@ -48,7 +48,7 @@ const ItemCard = ({ item, userLikes }) => {
         <div className="itemCard__details">
           <div className="itemCard__primary">
             <h3 className="itemCard__title">{item.itemTitle}</h3>
-            <p className="itemCard__subtitle category">{item.itemCategory}</p>
+            <p className={`itemCard__subtitle category ${item.itemCategory}`}>{item.itemCategory}</p>
             <p className="itemCard__subtitle description">{item.itemDescription}</p>
           </div>
           <div className="itemCard__secondary">

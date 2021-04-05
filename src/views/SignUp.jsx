@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useOktaAuth } from '@okta/okta-react';
 import { postNewUserToAPI } from '../modules/api-service';
@@ -11,6 +11,7 @@ const SignUp = () => {
   const [userTelephone, setTelephone] = useState('');
   const [userEmail, setEmail] = useState('');
   const [userPassword, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -20,6 +21,14 @@ const SignUp = () => {
   const handleTelephoneChange = e => setTelephone(e.target.value);
   const handleEmailChange = e => setEmail(e.target.value);
   const handlePasswordChange = e => setPassword(e.target.value);
+  const handleConfirmPasswordChange = e => setConfirmPassword(e.target.value);
+
+  useEffect(() => {
+    if (userPassword !== confirmPassword) {
+      setError(true);
+      setErrorMessage("Your passwords don't match");
+    }
+  }, [userPassword, confirmPassword]);
 
   const handleFormSubmit = async event => {
     event.preventDefault();
@@ -89,6 +98,10 @@ const SignUp = () => {
         <label className="form__label" htmlFor="password">
           Password
           <input className="form__input" id="password" type="password" value={userPassword} onChange={handlePasswordChange} placeholder="Enter passsword" required />
+        </label>
+        <label className="form__label" htmlFor="password">
+          Confirm password
+          <input className="form__input" id="password" type="password" value={confirmPassword} onChange={handleConfirmPasswordChange} placeholder="Confirm password" required />
         </label>
         <button className="primary__btn" type="submit">Sign up</button>
         <p className="form__signup--text">

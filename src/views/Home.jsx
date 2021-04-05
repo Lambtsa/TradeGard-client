@@ -3,6 +3,7 @@ import { useOktaAuth } from '@okta/okta-react';
 import { fetchAllItems } from '../modules/api-service';
 
 import ItemCard from '../components/ItemCard/ItemCard';
+import Loader from '../components/loader/Loader';
 
 const Home = () => {
   const { authState } = useOktaAuth();
@@ -10,6 +11,7 @@ const Home = () => {
   const [noItemError, setnoItemError] = useState(false);
   const [fetchError, setFetchError] = useState(false);
   const [userLikes, setUserLikes] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(async () => {
     let accessToken;
@@ -21,11 +23,14 @@ const Home = () => {
       const fetchedData = await response.json();
       if (fetchedData.items.length === 0) {
         setnoItemError(true);
+        setIsLoading(false);
       }
       setItems(fetchedData.items);
       setUserLikes(fetchedData.userLikedItems);
+      setIsLoading(false);
     } else {
       setFetchError(true);
+      setIsLoading(false);
     }
   }, [authState.isAuthenticated]);
 
@@ -40,8 +45,7 @@ const Home = () => {
           ))}
         </ul>
       )}
-      {!fetchError && !noItemError && items.length === 0
-      && <p>Loading...</p>}
+      {isLoading && <Loader />}
     </section>
   );
 };

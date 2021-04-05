@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useOktaAuth } from '@okta/okta-react';
-import SnackBar from '../SnackBar/SnackBar';
+import SnackBar from '../components/SnackBar/SnackBar';
 
 const SignInForm = () => {
   const [error, setError] = useState(false);

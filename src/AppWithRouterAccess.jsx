@@ -10,6 +10,7 @@ import { OktaAuth, toRelativeUrl } from '@okta/okta-auth-js';
 
 import Header from './components/Header/Header';
 import SignIn from './components/SignIn/SignIn';
+import Footer from './components/Footer/Footer';
 
 import Home from './views/Home';
 import MyAccount from './views/MyAccount';
@@ -55,6 +56,7 @@ function AppWithRouterAccess() {
           <Route path="/" component={NotFound} />
         </Switch>
       </main>
+      <Footer />
     </Security>
   );
 }
