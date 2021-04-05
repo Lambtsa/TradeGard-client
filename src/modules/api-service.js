@@ -54,6 +54,13 @@ const updateItemLike = (itemId, isLiked, accessToken) => fetch(`${baseUrl}api/it
   body: JSON.stringify({ isLiked }),
 });
 
+const getMatches = accessToken => fetch(`${baseUrl}api/matches`, {
+  method: 'GET',
+  headers: {
+    Authorization: `Bearer ${accessToken}`,
+  },
+});
+
 module.exports = {
   fetchAllItems,
   postItemToAPI,
@@ -61,4 +68,5 @@ module.exports = {
   fetchItemById,
   fetchContactDetailsById,
   updateItemLike,
+  getMatches,
 };

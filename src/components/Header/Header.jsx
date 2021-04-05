@@ -36,7 +36,7 @@ const Header = () => {
         <nav className="header__nav">
           <NavLink link="/" linkText="Browse" icon={searchIcon} />
           <NavLink link="/new-item" linkText="New item" icon={addIcon} />
-          <NavLink link="/trading" linkText="Trading" icon={swapIcon} />
+          <NavLink link="/trades" linkText="Trading" icon={swapIcon} />
           <NavLink link="/likes" linkText="Likes" icon={heartIcon} />
           <NavLink link="/my-account" linkText={authState.isAuthenticated ? 'My account' : 'Login'} icon={accountIcon} />
         </nav>

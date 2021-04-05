@@ -71,6 +71,7 @@ const NewItem = () => {
             <option value="furniture">Furniture</option>
             <option value="clothes">Clothes</option>
             <option value="books">Books</option>
+            <option value="computers">Computers</option>
           </select>
         </label>
         <button className="primary__btn" type="submit">Add item</button>
