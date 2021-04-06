@@ -11,9 +11,12 @@ const UserItems = () => {
   const { userId } = useParams();
   const { authState } = useOktaAuth();
   const [isLoading, setIsLoading] = useState(true);
-  const [items, setItems] = useState([]);
   const [error, setError] = useState(false);
-  const [userLikes, setUserLikes] = useState([]);
+  const [data, setData] = useState({
+    items: [],
+    userLikedItems: [],
+    ownerDisplayName: '',
+  });
 
   useEffect(async () => {
     let accessToken;
@@ -24,9 +27,8 @@ const UserItems = () => {
     if (!response.ok) {
       setError(true);
     } else {
-      const data = await response.json();
-      setItems(data.items);
-      setUserLikes(data.userLikedItems);
+      const responseData = await response.json();
+      setData(responseData);
       setError(false);
       setIsLoading(false);
     }
@@ -36,10 +38,13 @@ const UserItems = () => {
     <section className="items__container">
       {isLoading && <Loader />}
       {error && <SnackBar state={error} setState={setError} type="error" message="Cannot load items. Please try again" />}
-      {items.length > 0 && (
-        <ItemList items={items} userLikes={userLikes} />
+      {data.items.length > 0 && (
+        <ItemList
+          items={data.items}
+          userLikes={data.userLikedItems}
+          caption={data.ownerDisplayName} />
       )}
-      {!isLoading && items.length === 0 && <p>This user has not currently posted any items</p>}
+      {!isLoading && data.items.length === 0 && <p>This user has not currently posted any items</p>}
     </section>
   );
 };

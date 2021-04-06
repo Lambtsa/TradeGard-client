@@ -48,7 +48,7 @@ const MyAcccount = () => {
             <h2>About</h2>
             <FontAwesomeIcon icon={rightArrow} className="icon__right-arrow" />
           </button>
-          <div className="padding__wrapper">
+          <div className="btn__wrapper">
             <button type="button" className="secondary__btn" onClick={() => oktaAuth.signOut()}>Logout</button>
           </div>
         </>
