@@ -197,6 +197,7 @@ main {
 .MatchCard__link {
   color: $primaryColor;
   text-decoration: underline;
+  text-transform: capitalize;
   font-weight: 700;
 }
 .MatchCard__bottom {
@@ -589,6 +590,7 @@ main {
   display: block;
   height: 200px;
   object-fit: contain;
+  box-shadow: 0 0 2px $grey;
   object-position: center;
   border-radius: 0.25rem;
 }
