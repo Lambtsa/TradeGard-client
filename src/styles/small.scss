@@ -543,7 +543,7 @@ main {
   width: 100%;
   display: block;
   height: 200px;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
   border-radius: 0.25rem;
 }
@@ -577,7 +577,7 @@ main {
   font-weight: 700;
 }
 .snackbar__success {
-  background-color: $primaryColor;
+  background-color: #53B175;
 }
 .snackbar__error {
   background-color: $red;

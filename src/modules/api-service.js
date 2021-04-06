@@ -38,6 +38,13 @@ const fetchItemById = (id, accessToken) => {
   return fetch(`${baseUrl}api/items/${id}`);
 };
 
+const fetchLikedItems = (id, accessToken) => fetch(`${baseUrl}api/users/${id}/likes`, {
+  method: 'GET',
+  headers: {
+    Authorization: `Bearer ${accessToken}`,
+  },
+});
+
 const postItemToAPI = (newItem, accessToken) => fetch(`${baseUrl}api/items`, {
   method: 'POST',
   headers: {
@@ -82,4 +89,5 @@ module.exports = {
   updateItemLike,
   getMatches,
   fetchAllItemsByUserId,
+  fetchLikedItems,
 };

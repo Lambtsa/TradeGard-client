@@ -10,7 +10,6 @@ const ImageCarousel = ({ images }) => {
   const [currentImage, setCurrentImage] = useState(images[0]);
 
   const handleNextClick = () => {
-    console.log(index);
     if (index < images.length - 1) {
       setIndex(index + 1);
       setCurrentImage(images[index + 1]);

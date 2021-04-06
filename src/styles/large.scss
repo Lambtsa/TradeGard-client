@@ -81,7 +81,10 @@ main {
   width: 100%;
 }
 .itemCard__subtitle.description {
-  display: block;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 .itemCard__subtitle.category {
   position: absolute;

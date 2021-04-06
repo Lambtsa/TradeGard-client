@@ -11,10 +11,6 @@ const MyAcccount = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    console.log(user);
-  }, [user]);
-
-  useEffect(() => {
     oktaAuth.token.getUserInfo()
       .then(data => {
         setUser(data);

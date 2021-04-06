@@ -20,6 +20,7 @@ import ItemDetails from './views/ItemDetails';
 import UserItems from './views/UserItems';
 import NotFound from './views/NotFound';
 import Trades from './views/Trades';
+import Likes from './views/Likes';
 
 function AppWithRouterAccess() {
   const history = useHistory();
@@ -52,6 +53,7 @@ function AppWithRouterAccess() {
           <SecureRoute exact path="/my-account" component={MyAccount} />
           <SecureRoute exact path="/new-item" component={NewItem} />
           <SecureRoute exact path="/trades" component={Trades} />
+          <SecureRoute exact path="/likes" component={Likes} />
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/items/:id" component={ItemDetails} />
           <Route exact path="/users/:userId" component={UserItems} />

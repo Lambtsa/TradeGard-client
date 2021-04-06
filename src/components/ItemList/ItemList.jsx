@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import ItemCard from '../ItemCard/ItemCard';
 
 const ItemList = ({ items, userLikes, caption }) => {
-  console.log(caption);
   const [searchValue, setSearchValue] = useState('');
   const [filteredItems, setFilteredItems] = useState(items);
 
