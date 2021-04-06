@@ -14,6 +14,13 @@ main {
   max-width: 1140px;
   padding: 2rem 0;
 }
+.MatchCard__bottom {
+  grid-template-columns: repeat(2, 1fr);
+}
+.MatchCard__list {
+  justify-content: flex-start;
+  align-items: flex-start;
+}
 
 /*
   Items Component
