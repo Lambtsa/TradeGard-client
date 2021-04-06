@@ -35,11 +35,11 @@ const Home = () => {
   }, [authState.isAuthenticated]);
 
   return (
-    <section>
+    <section className="items__container">
       {fetchError && <p>Items could not be fetched</p>}
       {noItemError && <p>Oops! There are no items at the moment</p>}
       {!fetchError && items.length > 0 && (
-        <ul className="home__items-container">
+        <ul className="items__grid">
           {items.map(item => (
             <ItemCard key={item._id} item={item} userLikes={userLikes} />
           ))}

@@ -24,11 +24,11 @@ const MyAcccount = () => {
   }, []);
 
   return (
-    <>
+    <section className="content__container">
       {isLoading && <Loader />}
       {error && <p>error</p>}
       {!isLoading && (
-        <section className="account">
+        <>
           <div className="user">
             <p className="user__circle">{`${user.given_name[0].toUpperCase()}${user.family_name[0].toUpperCase()}`}</p>
             <div className="user__details">
@@ -49,9 +49,9 @@ const MyAcccount = () => {
             <FontAwesomeIcon icon={rightArrow} className="icon__right-arrow" />
           </button>
           <button type="button" className="secondary__btn" onClick={() => oktaAuth.signOut()}>Logout</button>
-        </section>
+        </>
       )}
-    </>
+    </section>
   );
 };
 

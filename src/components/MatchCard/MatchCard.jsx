@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './MatchCard.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope as envelopeIcon } from '@fortawesome/free-solid-svg-icons';
 import ContactModal from '../ContactModal/ContactModal';

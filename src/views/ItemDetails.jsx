@@ -11,6 +11,7 @@ import { fetchItemById } from '../modules/api-service';
 import ContactModal from '../components/ContactModal/ContactModal';
 import ImageCarousel from '../components/ImageCarousel/ImageCarousel';
 import LikeToggle from '../components/LikeToggle/LikeToggle';
+import Loader from '../components/loader/Loader';
 
 const ItemDetails = () => {
   const { authState } = useOktaAuth();
@@ -54,8 +55,8 @@ const ItemDetails = () => {
   }
 
   return (
-    <section className="details__container">
-      {isLoading && <p>Loading details...</p>}
+    <section className="content__container">
+      {isLoading && <Loader />}
       {!isLoading && (
         <article className="details">
           <ImageCarousel images={objectDetails.itemImages} />

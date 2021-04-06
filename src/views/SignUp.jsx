@@ -26,7 +26,7 @@ const SignUp = () => {
   useEffect(() => {
     if (userPassword !== confirmPassword) {
       setError(true);
-      setErrorMessage("Your passwords don't match");
+      setErrorMessage('Please ensure that your passwords match!');
     }
   }, [userPassword, confirmPassword]);
 
@@ -71,7 +71,7 @@ const SignUp = () => {
   };
 
   return (
-    <section className="form__container">
+    <section className="content__container padding">
       <h1 className="form__title">Sign up</h1>
       <p className="form__subtitle">Enter your details to start swapping</p>
       <form className="form" onSubmit={handleFormSubmit}>
