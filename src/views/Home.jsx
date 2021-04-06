@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
 import { fetchAllItems } from '../modules/api-service';
 
-import ItemCard from '../components/ItemCard/ItemCard';
 import Loader from '../components/Loader/Loader';
+import ItemList from '../components/ItemList/ItemList';
 
 const Home = () => {
   const { authState } = useOktaAuth();
@@ -39,11 +39,7 @@ const Home = () => {
       {fetchError && <p>Items could not be fetched</p>}
       {noItemError && <p>Oops! There are no items at the moment</p>}
       {!fetchError && items.length > 0 && (
-        <ul className="items__grid">
-          {items.map(item => (
-            <ItemCard key={item._id} item={item} userLikes={userLikes} />
-          ))}
-        </ul>
+        <ItemList items={items} userLikes={userLikes} />
       )}
       {isLoading && <Loader />}
     </section>

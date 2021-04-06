@@ -17,7 +17,7 @@ This is the Front end application built using React Create App.
   - Contact other users
   - Add new items 
   - Add multiple photos
-- Okta Integration
+- Secure authentication provided by Okta
 - Responsive website designed mobile first
 - Linting with Eslint using a SALT specific config
 - Testing using JEST and react testing library
