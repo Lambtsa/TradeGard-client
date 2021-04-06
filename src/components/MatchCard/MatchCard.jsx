@@ -18,7 +18,7 @@ const MatchCard = ({ matchDetails }) => {
         <div className="MatchCard__top">
           <div className="MatchCard__userCircle">{matchDetails.userDisplayName[0].toUpperCase()}</div>
           <div className="MatchCard__user">
-            <h3 className="MatchCard__header">{matchDetails.userDisplayName}</h3>
+            <Link to={`/users/${matchDetails.userId}`} className="MatchCard__header">{matchDetails.userDisplayName}</Link>
             <p className="MatchCard__text">They have liked</p>
             <button type="button" onClick={() => setIsVisible(!isVisible)} className="MatchCard__text count">
               <>

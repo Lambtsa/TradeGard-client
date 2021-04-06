@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
-import { useParams, Redirect } from 'react-router-dom';
+import { useParams, Redirect, Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faMapMarkerAlt as mapMarker,
@@ -75,9 +75,9 @@ const ItemDetails = () => {
           <p className="details__description">{objectDetails.itemDescription}</p>
           <div className="details__caption--posted">
             <FontAwesomeIcon icon={userIcon} className="details__caption-icon" />
-            <p>
+            <Link to={`/users/${objectDetails.itemOwner.userId}`}>
               {`Posted by: ${objectDetails.itemOwner.userDisplayName}`}
-            </p>
+            </Link>
           </div>
           <button className="primary__btn" onClick={handleButtonClick} type="button">Contact</button>
         </article>

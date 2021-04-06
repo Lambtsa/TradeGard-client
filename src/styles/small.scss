@@ -172,8 +172,15 @@ main {
 
 
 .MatchCard__header {
+  display: block;
   font-size: 1.2rem;
   margin-bottom: .5rem;
+  text-transform: capitalize;
+  color: $black;
+  font-weight: 700;
+  &:hover {
+    color: $primaryColor;
+  }
 }
 
 .MatchCard__userCircle {
@@ -484,9 +491,13 @@ main {
   margin-bottom: 0.5rem;
   color: $black;
   text-decoration: underline;
-  p {
+  a {
     margin: 0;
     font-size: .9rem;
+    color: $black;
+    &:hover {
+      color: $primaryColor;
+    }
   }
 }
 
