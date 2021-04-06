@@ -3,6 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle as deleteIcon, faCamera as camera } from '@fortawesome/free-solid-svg-icons';
 import './ImageSlot.scss';
 
+import SnackBar from '../SnackBar/SnackBar';
+
 const ImageSlot = props => {
   const {
     itemTitle = '',
@@ -73,7 +75,7 @@ const ImageSlot = props => {
           </div>
         </div>
       )}
-      {error && <p className="error-message">There was an error in uploading your image</p>}
+      {error && <SnackBar state={error} setState={setError} type="error" message="There was an error in uploading your image" />}
     </>
   );
 };

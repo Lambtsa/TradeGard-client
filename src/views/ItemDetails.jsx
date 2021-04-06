@@ -12,6 +12,7 @@ import ContactModal from '../components/ContactModal/ContactModal';
 import ImageCarousel from '../components/ImageCarousel/ImageCarousel';
 import LikeToggle from '../components/LikeToggle/LikeToggle';
 import Loader from '../components/Loader/Loader';
+import SnackBar from '../components/SnackBar/SnackBar';
 
 const ItemDetails = () => {
   const { authState } = useOktaAuth();
@@ -87,6 +88,7 @@ const ItemDetails = () => {
       {showModal && (
         <ContactModal ownerDetails={objectDetails.itemOwner} setShowModal={setShowModal} />
       )}
+      {error && <SnackBar state={error} setState={setError} type="error" message="There was an issue, please try again." />}
     </section>
   );
 };

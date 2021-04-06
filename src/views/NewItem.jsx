@@ -11,6 +11,7 @@ const NewItem = () => {
   const [itemImages, setItemImages] = useState([]);
   const [itemCategory, setItemCategory] = useState('');
   const [isValid, setIsValid] = useState(false);
+  const [error, setError] = useState(false);
 
   const onTitleChange = e => setItemTitle(e.target.value);
   const onDescriptionChange = e => setItemDescription(e.target.value);
@@ -37,9 +38,9 @@ const NewItem = () => {
       setItemDescription('');
       setItemImages([]);
       setItemCategory('');
+      setError(false);
     } catch (err) {
-      /* better error handling */
-      console.log(err);
+      setError(true);
     }
   };
 
@@ -90,6 +91,7 @@ const NewItem = () => {
             type="success"
             message="Congratulations! Your item has been posted." />
         )}
+        {error && <SnackBar state={error} setState={setError} type="error" message="There was an issue, please try again." />}
       </form>
     </section>
   );

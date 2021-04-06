@@ -4,19 +4,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart as outlineHeart } from '@fortawesome/free-regular-svg-icons';
 import { faHeart as filledHeart } from '@fortawesome/free-solid-svg-icons';
 
-/* eslint-disable */
-const LikeToggle = ({ isLiked, handleLikeToggle }) => {
-  // const { authState } = useOktaAuth();
-
-  // if (authState.isAuthenticated) {
-  //   console.log(authState.isAuthenticated);
-  // }
-
-  return (
-    <button className="icon__heart--btn" type="button" onClick={handleLikeToggle}>
-      <FontAwesomeIcon icon={isLiked ? filledHeart : outlineHeart} className="icon__heart" />
-    </button>
-  );
-};
+const LikeToggle = ({ isLiked, handleLikeToggle }) => (
+  <button className="icon__heart--btn" type="button" onClick={handleLikeToggle}>
+    <FontAwesomeIcon icon={isLiked ? filledHeart : outlineHeart} className="icon__heart" />
+  </button>
+);
 
 export default LikeToggle;

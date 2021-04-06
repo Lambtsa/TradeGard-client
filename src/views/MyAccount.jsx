@@ -3,6 +3,7 @@ import { useOktaAuth } from '@okta/okta-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight as rightArrow } from '@fortawesome/free-solid-svg-icons';
 import Loader from '../components/Loader/Loader';
+import SnackBar from '../components/SnackBar/SnackBar';
 
 const MyAcccount = () => {
   const { oktaAuth } = useOktaAuth();
@@ -22,7 +23,7 @@ const MyAcccount = () => {
   return (
     <section className="content__container">
       {isLoading && <Loader />}
-      {error && <p>error</p>}
+      {error && <SnackBar state={error} setState={setError} type="error" message="There was an issue, please try again." />}
       {!isLoading && (
         <>
           <div className="user">
