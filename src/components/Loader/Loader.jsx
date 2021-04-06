@@ -1,5 +1,12 @@
 import React from 'react';
 
-const Loader = () => <p>loading...</p>;
+const Loader = () => (
+  <div className="loader__container">
+    <div className="lds-ripple">
+      <div />
+      <div />
+    </div>
+  </div>
+);
 
 export default Loader;

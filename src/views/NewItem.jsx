@@ -68,10 +68,18 @@ const NewItem = () => {
           Item Category:
           <select className="form__input select" id="category" value={itemCategory} onChange={onCategoryChange} required>
             <option value="">Please select category</option>
-            <option value="furniture">Furniture</option>
-            <option value="clothes">Clothes</option>
+            <option value="bicycles">Bicycles</option>
             <option value="books">Books</option>
-            <option value="computers">Computers</option>
+            <option value="clothes">Clothes</option>
+            <option value="electronics">Electronics</option>
+            <option value="furniture">Furniture</option>
+            <option value="garden">Garden</option>
+            <option value="hobbies">Hobbies</option>
+            <option value="music">Music</option>
+            <option value="phones">Phones</option>
+            <option value="services">Services</option>
+            <option value="tools">Tools</option>
+            <option value="vehicules">Vehicules</option>
           </select>
         </label>
         <button className="primary__btn" type="submit">Add item</button>
