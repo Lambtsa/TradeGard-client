@@ -55,31 +55,33 @@ const ItemDetails = () => {
   }
 
   return (
-    <section className="content__container padding">
+    <section className="items__container padding">
       {isLoading && <Loader />}
       {!isLoading && (
         <article className="details">
           <ImageCarousel images={objectDetails.itemImages} />
-          <div className="details__title-container">
-            <h2 className="details__title">{objectDetails.itemTitle}</h2>
-            <LikeToggle />
+          <div>
+            <div className="details__title-container">
+              <h2 className="details__title">{objectDetails.itemTitle}</h2>
+              <LikeToggle />
+            </div>
+            <div className="details__caption">
+              <FontAwesomeIcon icon={mapMarker} className="details__caption-icon" />
+              <p>Stockholm</p>
+            </div>
+            <div className="details__caption">
+              <FontAwesomeIcon icon={clock} className="details__caption-icon" />
+              <p>{new Date(objectDetails.itemCreationDateUTC).toLocaleString()}</p>
+            </div>
+            <p className="details__description">{objectDetails.itemDescription}</p>
+            <div className="details__caption--posted">
+              <FontAwesomeIcon icon={userIcon} className="details__caption-icon" />
+              <Link to={`/users/${objectDetails.itemOwner.userId}`}>
+                {`Posted by: ${objectDetails.itemOwner.userDisplayName}`}
+              </Link>
+            </div>
+            <button className="primary__btn" onClick={handleButtonClick} type="button">Contact</button>
           </div>
-          <div className="details__caption">
-            <FontAwesomeIcon icon={mapMarker} className="details__caption-icon" />
-            <p>Stockholm</p>
-          </div>
-          <div className="details__caption">
-            <FontAwesomeIcon icon={clock} className="details__caption-icon" />
-            <p>{new Date(objectDetails.itemCreationDateUTC).toLocaleString()}</p>
-          </div>
-          <p className="details__description">{objectDetails.itemDescription}</p>
-          <div className="details__caption--posted">
-            <FontAwesomeIcon icon={userIcon} className="details__caption-icon" />
-            <Link to={`/users/${objectDetails.itemOwner.userId}`}>
-              {`Posted by: ${objectDetails.itemOwner.userDisplayName}`}
-            </Link>
-          </div>
-          <button className="primary__btn" onClick={handleButtonClick} type="button">Contact</button>
         </article>
       )}
       {showModal && (

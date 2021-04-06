@@ -184,8 +184,10 @@ main {
 /*
   Item details View
 */
-.details__container {
-  max-width: 768px;
+.details {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
 }
 
 /*
