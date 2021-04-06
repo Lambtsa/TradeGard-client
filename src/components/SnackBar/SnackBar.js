@@ -3,14 +3,12 @@ import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle as deleteIcon } from '@fortawesome/free-solid-svg-icons';
 
-const SnackBar = props => {
-  const {
-    state,
-    setState,
-    type,
-    message,
-  } = props;
-
+const SnackBar = ({
+  state,
+  setState,
+  type,
+  message,
+}) => {
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       setState(false);

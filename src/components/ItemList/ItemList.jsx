@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ItemCard from '../ItemCard/ItemCard';
 
-const ItemList = ({ items, userLikes }) => {
+const ItemList = ({ items, userLikes, caption = 'dave' }) => {
   const [searchValue, setSearchValue] = useState('');
   const [filteredItems, setFilteredItems] = useState(items);
 
@@ -29,6 +29,12 @@ const ItemList = ({ items, userLikes }) => {
             onChange={handleSearchChange}
             placeholder="What are you looking for?" />
         </label>
+        {caption && searchValue === '' && (
+        <p className="search__caption">
+          {`You are viewing ${items.length} items for `}
+          <span>{caption}</span>
+        </p>
+        )}
       </form>
       <ul className="items__grid">
         {filteredItems.map(item => (

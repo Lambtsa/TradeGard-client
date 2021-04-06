@@ -17,6 +17,7 @@ import MyAccount from './views/MyAccount';
 import NewItem from './views/NewItem';
 import SignUp from './views/SignUp';
 import ItemDetails from './views/ItemDetails';
+import UserItems from './views/UserItems';
 import NotFound from './views/NotFound';
 import Trades from './views/Trades';
 
@@ -53,6 +54,7 @@ function AppWithRouterAccess() {
           <SecureRoute exact path="/trades" component={Trades} />
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/items/:id" component={ItemDetails} />
+          <Route exact path="/users/:userId" component={UserItems} />
           <Route path="/" component={NotFound} />
         </Switch>
       </main>

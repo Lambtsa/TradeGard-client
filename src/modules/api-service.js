@@ -14,6 +14,18 @@ const fetchAllItems = accessToken => {
   return fetch(`${baseUrl}api/items`);
 };
 
+const fetchAllItemsByUserId = (id, accessToken) => {
+  if (accessToken) {
+    return fetch(`${baseUrl}api/items/?userId=${id}`, {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+  }
+  return fetch(`${baseUrl}api/items/?userId=${id}`);
+};
+
 const fetchItemById = (id, accessToken) => {
   if (accessToken) {
     return fetch(`${baseUrl}api/items/${id}`, {
@@ -69,4 +81,5 @@ module.exports = {
   fetchContactDetailsById,
   updateItemLike,
   getMatches,
+  fetchAllItemsByUserId,
 };
