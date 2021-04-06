@@ -11,7 +11,7 @@ import { fetchItemById } from '../modules/api-service';
 import ContactModal from '../components/ContactModal/ContactModal';
 import ImageCarousel from '../components/ImageCarousel/ImageCarousel';
 import LikeToggle from '../components/LikeToggle/LikeToggle';
-import Loader from '../components/loader/Loader';
+import Loader from '../components/Loader/Loader';
 
 const ItemDetails = () => {
   const { authState } = useOktaAuth();
@@ -55,7 +55,7 @@ const ItemDetails = () => {
   }
 
   return (
-    <section className="content__container">
+    <section className="content__container padding">
       {isLoading && <Loader />}
       {!isLoading && (
         <article className="details">

@@ -1,5 +1,18 @@
+h1 {
+  font-size: 1.8rem;
+  margin-bottom: .5rem;
+}
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: .5rem;
+}
+h3 {
+  font-size: 1.2rem;
+  margin-bottom: .3rem;
+}
 main {
   max-width: 1140px;
+  padding: 3rem 0;
 }
 
 /*
@@ -191,4 +204,7 @@ main {
 .account {
   max-width: 768px;
   margin: 0 auto;
+}
+.button__wrapper {
+  padding: 1rem 0;
 }

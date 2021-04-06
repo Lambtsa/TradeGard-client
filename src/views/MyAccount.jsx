@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight as rightArrow } from '@fortawesome/free-solid-svg-icons';
-import Loader from '../components/loader/Loader';
+import Loader from '../components/Loader/Loader';
 
 const MyAcccount = () => {
   const { oktaAuth } = useOktaAuth();
@@ -30,7 +30,7 @@ const MyAcccount = () => {
       {!isLoading && (
         <>
           <div className="user">
-            <p className="user__circle">{`${user.given_name[0].toUpperCase()}${user.family_name[0].toUpperCase()}`}</p>
+            <p className="user__circle">{`${user.given_name[0].toUpperCase() || ''}${user.family_name[0].toUpperCase() || ''}`}</p>
             <div className="user__details">
               <h2>{user.name}</h2>
               <p className="user__subtitle">{user.email}</p>
@@ -48,7 +48,9 @@ const MyAcccount = () => {
             <h2>About</h2>
             <FontAwesomeIcon icon={rightArrow} className="icon__right-arrow" />
           </button>
-          <button type="button" className="secondary__btn" onClick={() => oktaAuth.signOut()}>Logout</button>
+          <div className="button__wrapper">
+            <button type="button" className="secondary__btn" onClick={() => oktaAuth.signOut()}>Logout</button>
+          </div>
         </>
       )}
     </section>

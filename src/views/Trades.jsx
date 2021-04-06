@@ -3,7 +3,7 @@ import { useOktaAuth } from '@okta/okta-react';
 import { getMatches } from '../modules/api-service';
 import MatchCard from '../components/MatchCard/MatchCard';
 import SnackBar from '../components/SnackBar/SnackBar';
-import Loader from '../components/loader/Loader';
+import Loader from '../components/Loader/Loader';
 
 const Trades = () => {
   const { authState } = useOktaAuth();

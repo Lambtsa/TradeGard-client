@@ -3,7 +3,7 @@ import { useOktaAuth } from '@okta/okta-react';
 import { fetchAllItems } from '../modules/api-service';
 
 import ItemCard from '../components/ItemCard/ItemCard';
-import Loader from '../components/loader/Loader';
+import Loader from '../components/Loader/Loader';
 
 const Home = () => {
   const { authState } = useOktaAuth();
