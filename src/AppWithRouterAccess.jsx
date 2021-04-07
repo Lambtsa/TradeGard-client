@@ -10,12 +10,17 @@ import { OktaAuth, toRelativeUrl } from '@okta/okta-auth-js';
 
 import Header from './components/Header/Header';
 import SignIn from './components/SignIn/SignIn';
+import Footer from './components/Footer/Footer';
 
 import Home from './views/Home';
 import MyAccount from './views/MyAccount';
 import NewItem from './views/NewItem';
 import SignUp from './views/SignUp';
 import ItemDetails from './views/ItemDetails';
+import UserItems from './views/UserItems';
+import NotFound from './views/NotFound';
+import Trades from './views/Trades';
+import Likes from './views/Likes';
 
 function AppWithRouterAccess() {
   const history = useHistory();
@@ -33,7 +38,6 @@ function AppWithRouterAccess() {
   });
 
   const restoreOriginalUri = async (_oktaAuth, originalUri) => {
-    console.log(history);
     history.replace(toRelativeUrl(originalUri, window.location.origin));
   };
 
@@ -47,10 +51,15 @@ function AppWithRouterAccess() {
           <Route exact path="/login/callback" component={LoginCallback} />
           <SecureRoute exact path="/my-account" component={MyAccount} />
           <SecureRoute exact path="/new-item" component={NewItem} />
+          <SecureRoute exact path="/trades" component={Trades} />
+          <SecureRoute exact path="/likes" component={Likes} />
           <Route exact path="/signup" component={SignUp} />
-          <Route path="/items/:id" component={ItemDetails} />
+          <Route exact path="/items/:id" component={ItemDetails} />
+          <Route exact path="/users/:userId" component={UserItems} />
+          <Route path="/" component={NotFound} />
         </Switch>
       </main>
+      <Footer />
     </Security>
   );
 }

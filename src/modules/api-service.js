@@ -14,6 +14,18 @@ const fetchAllItems = accessToken => {
   return fetch(`${baseUrl}api/items`);
 };
 
+const fetchAllItemsByUserId = (id, accessToken) => {
+  if (accessToken) {
+    return fetch(`${baseUrl}api/items/?userId=${id}`, {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+  }
+  return fetch(`${baseUrl}api/items/?userId=${id}`);
+};
+
 const fetchItemById = (id, accessToken) => {
   if (accessToken) {
     return fetch(`${baseUrl}api/items/${id}`, {
@@ -25,6 +37,13 @@ const fetchItemById = (id, accessToken) => {
   }
   return fetch(`${baseUrl}api/items/${id}`);
 };
+
+const fetchLikedItems = (id, accessToken) => fetch(`${baseUrl}api/users/${id}/likes`, {
+  method: 'GET',
+  headers: {
+    Authorization: `Bearer ${accessToken}`,
+  },
+});
 
 const postItemToAPI = (newItem, accessToken) => fetch(`${baseUrl}api/items`, {
   method: 'POST',
@@ -54,6 +73,13 @@ const updateItemLike = (itemId, isLiked, accessToken) => fetch(`${baseUrl}api/it
   body: JSON.stringify({ isLiked }),
 });
 
+const getMatches = accessToken => fetch(`${baseUrl}api/matches`, {
+  method: 'GET',
+  headers: {
+    Authorization: `Bearer ${accessToken}`,
+  },
+});
+
 module.exports = {
   fetchAllItems,
   postItemToAPI,
@@ -61,4 +87,7 @@ module.exports = {
   fetchItemById,
   fetchContactDetailsById,
   updateItemLike,
+  getMatches,
+  fetchAllItemsByUserId,
+  fetchLikedItems,
 };

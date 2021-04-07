@@ -9,12 +9,12 @@ import {
   faUserCircle as accountIcon,
 } from '@fortawesome/free-solid-svg-icons';
 import NavLink from '../NavLink/NavLink';
-import moustache from '../../assets/moustache.svg';
+import moustache from '../../assets/moustacheIcon.svg';
 
 /* eslint-disable */
 const Header = () => {
   const { authState, oktaAuth } = useOktaAuth();
-  const [displayName, setDisplayName] = useState('My account');
+  const [displayName, setDisplayName] = useState('Profile');
   const history = useHistory();
 
   const button = authState.isAuthenticated
@@ -36,9 +36,9 @@ const Header = () => {
         <nav className="header__nav">
           <NavLink link="/" linkText="Browse" icon={searchIcon} />
           <NavLink link="/new-item" linkText="New item" icon={addIcon} />
-          <NavLink link="/trading" linkText="Trading" icon={swapIcon} />
+          <NavLink link="/trades" linkText="Trading" icon={swapIcon} />
           <NavLink link="/likes" linkText="Likes" icon={heartIcon} />
-          <NavLink link="/my-account" linkText={authState.isAuthenticated ? 'My account' : 'Login'} icon={accountIcon} />
+          <NavLink link="/my-account" linkText={authState.isAuthenticated ? displayName : 'Login'} icon={accountIcon} />
         </nav>
       </div>
     </header>

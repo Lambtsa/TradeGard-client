@@ -1,13 +1,24 @@
 /*
   Variables
 */
-$primaryColor: #53B175;
+$primaryColor: #FF7B9C;
 $black: #252422;
 $grey: lighten($black, 50%);
 $lightGrey: lighten($black, 70%);
-$white: #fefefe;
+$white: #FEFEFC;
 $red: #FF6B6B;
 
-$card-bg-light: #e6e6e6;
-$card-bg-dark: #d8d8d8;
-$nav-bg: #C4C4C4;
+
+$bicycles: hsl(0, 60%, 70%);
+$books: hsl(36, 60%, 70%);
+$clothes: hsl(72, 60%, 70%);
+$electronics: hsl(108, 60%, 70%);
+$furniture: hsl(144, 60%, 70%);
+$garden: hsl(180, 60%, 70%);
+$hobbies: hsl(216, 60%, 70%);
+$jewellery:hsl(252, 60%, 70%);
+$music: hsl(288, 60%, 70%);
+$phones: hsl(324, 60%, 70%);
+$services: hsl(0, 60%, 70%);
+$tools: hsl(36, 60%, 70%);
+$vehicules: hsl(72, 60%, 70%);

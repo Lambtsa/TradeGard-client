@@ -3,6 +3,7 @@ import { useOktaAuth } from '@okta/okta-react';
 import { postItemToAPI } from '../modules/api-service';
 import ImageSlot from '../components/ImageSlot/ImageSlot';
 import SnackBar from '../components/SnackBar/SnackBar';
+import Input from '../components/Input/Input';
 
 const NewItem = () => {
   const { authState } = useOktaAuth();
@@ -11,6 +12,7 @@ const NewItem = () => {
   const [itemImages, setItemImages] = useState([]);
   const [itemCategory, setItemCategory] = useState('');
   const [isValid, setIsValid] = useState(false);
+  const [error, setError] = useState(false);
 
   const onTitleChange = e => setItemTitle(e.target.value);
   const onDescriptionChange = e => setItemDescription(e.target.value);
@@ -37,24 +39,27 @@ const NewItem = () => {
       setItemDescription('');
       setItemImages([]);
       setItemCategory('');
+      setError(false);
     } catch (err) {
-      /* better error handling */
-      console.log(err);
+      setError(true);
     }
   };
 
   return (
-    <section className="form__container">
+    <section className="content__container padding">
       <h1 className="form__title">Post a new item</h1>
       <p className="form__subtitle">A few seconds away from sharing</p>
       <form className="form" onSubmit={handleFormSubmit}>
-        <label className="form__label" htmlFor="title">
-          Item Title:
-          <input className="form__input" id="title" type="text" value={itemTitle} onChange={onTitleChange} placeholder="Enter title" required />
-        </label>
+        <Input
+          label="Item title"
+          type="text"
+          state={itemTitle}
+          onChange={onTitleChange}
+          placeholder="Enter title"
+          required />
         <label className="form__label" htmlFor="description">
-          Item Description:
-          <input className="form__input" id="description" type="text" value={itemDescription} onChange={onDescriptionChange} placeholder="Enter description" required />
+          Item Description
+          <textarea className="form__input textarea" id="description" type="text" value={itemDescription} onChange={onDescriptionChange} placeholder="Enter description" required />
         </label>
         <div className="form__image--container">
           <ImageSlot state={{ itemImages, setItemImages }} itemTitle={itemTitle} slot="1" />
@@ -65,12 +70,21 @@ const NewItem = () => {
           <ImageSlot state={{ itemImages, setItemImages }} itemTitle={itemTitle} slot="6" />
         </div>
         <label className="form__label select" htmlFor="category">
-          Item Category:
+          Item Category
           <select className="form__input select" id="category" value={itemCategory} onChange={onCategoryChange} required>
             <option value="">Please select category</option>
-            <option value="furniture">Furniture</option>
-            <option value="clothes">Clothes</option>
+            <option value="bicycles">Bicycles</option>
             <option value="books">Books</option>
+            <option value="clothes">Clothes</option>
+            <option value="electronics">Electronics</option>
+            <option value="furniture">Furniture</option>
+            <option value="garden">Garden</option>
+            <option value="hobbies">Hobbies</option>
+            <option value="music">Music</option>
+            <option value="phones">Phones</option>
+            <option value="services">Services</option>
+            <option value="tools">Tools</option>
+            <option value="vehicules">Vehicules</option>
           </select>
         </label>
         <button className="primary__btn" type="submit">Add item</button>
@@ -81,6 +95,7 @@ const NewItem = () => {
             type="success"
             message="Congratulations! Your item has been posted." />
         )}
+        {error && <SnackBar state={error} setState={setError} type="error" message="There was an issue, please try again." />}
       </form>
     </section>
   );

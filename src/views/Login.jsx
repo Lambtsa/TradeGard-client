@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useOktaAuth } from '@okta/okta-react';
-import SnackBar from '../SnackBar/SnackBar';
+import SnackBar from '../components/SnackBar/SnackBar';
 
 const SignInForm = () => {
   const [error, setError] = useState(false);
@@ -46,7 +46,7 @@ const SignInForm = () => {
   }
 
   return (
-    <section className="form__container">
+    <section className="content__container padding">
       <h1 className="form__title">Login</h1>
       <p className="form__subtitle">Enter your email address and password</p>
       <form className="form" onSubmit={handleFormSubmit}>
