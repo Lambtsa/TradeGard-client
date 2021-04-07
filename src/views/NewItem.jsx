@@ -84,7 +84,7 @@ const NewItem = () => {
             <option value="phones">Phones</option>
             <option value="services">Services</option>
             <option value="tools">Tools</option>
-            <option value="vehicules">Vehicules</option>
+            <option value="vehicles">Vehicles</option>
           </select>
         </label>
         <button className="primary__btn" type="submit">Add item</button>
