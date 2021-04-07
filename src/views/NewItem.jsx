@@ -11,12 +11,14 @@ const NewItem = () => {
   const [itemDescription, setItemDescription] = useState('');
   const [itemImages, setItemImages] = useState([]);
   const [itemCategory, setItemCategory] = useState('');
+  const [itemLocation, setItemLocation] = useState('');
   const [isValid, setIsValid] = useState(false);
   const [error, setError] = useState(false);
 
   const onTitleChange = e => setItemTitle(e.target.value);
   const onDescriptionChange = e => setItemDescription(e.target.value);
   const onCategoryChange = e => setItemCategory(e.target.value);
+  const onLocationChange = e => setItemLocation(e.target.value);
 
   const handleFormSubmit = async e => {
     // validate inputs and output potential issues
@@ -28,6 +30,7 @@ const NewItem = () => {
         itemDescription,
         itemImages,
         itemCategory,
+        itemLocation,
       },
     };
     try {
@@ -39,6 +42,7 @@ const NewItem = () => {
       setItemDescription('');
       setItemImages([]);
       setItemCategory('');
+      setItemLocation('');
       setError(false);
     } catch (err) {
       setError(true);
@@ -69,6 +73,24 @@ const NewItem = () => {
           <ImageSlot state={{ itemImages, setItemImages }} itemTitle={itemTitle} slot="5" />
           <ImageSlot state={{ itemImages, setItemImages }} itemTitle={itemTitle} slot="6" />
         </div>
+        <label className="form__label select" htmlFor="location">
+          Item Location
+          <select className="form__input select" id="location" value={itemLocation} onChange={onLocationChange} required>
+            <option value="">Please select location</option>
+            <option value="stockholm">Stockholm</option>
+            <option value="göteborg">Göteborg</option>
+            <option value="malmö">Malmö</option>
+            <option value="uppsala">Uppsala</option>
+            <option value="sollentuna">Sollentuna</option>
+            <option value="västerås">Västerås</option>
+            <option value="örebro">Örebro</option>
+            <option value="linköping">Linköping</option>
+            <option value="helsingborg">Helsingborg</option>
+            <option value="jönköping">Jönköping</option>
+            <option value="norrköping">Norrköping</option>
+            <option value="lund">Lund</option>
+          </select>
+        </label>
         <label className="form__label select" htmlFor="category">
           Item Category
           <select className="form__input select" id="category" value={itemCategory} onChange={onCategoryChange} required>

@@ -34,20 +34,24 @@ const MyAcccount = () => {
             </div>
           </div>
           <Expandable title="My details">
-            <h3 className="">Your name</h3>
-            <p className="">{user.name}</p>
-            <h3 className="">Your display name</h3>
-            <p className="">{user.nickname}</p>
-            <h3 className="">Your e-mail</h3>
-            <p className="">{user.email}</p>
-            <Link to={`/users/${user.sub}`}>See your items</Link>
+            <div>
+              <h3 className="">Your name</h3>
+              <p className="">{user.name}</p>
+              <h3 className="">Your display name</h3>
+              <p className="">{user.nickname}</p>
+              <h3 className="">Your e-mail</h3>
+              <p className="">{user.email}</p>
+              <Link to={`/users/${user.sub}`}>See your items</Link>
+            </div>
           </Expandable>
           <Expandable title="Help">
-            <p>
-              {`If you are experiencing any technical
-               issues or have any questions, please contact us at`}
-            </p>
-            <a href="mailto:hello@swapit.com">hello@swapit.com</a>
+            <div>
+              <p>
+                {`If you are experiencing any technical
+                issues or have any questions, please contact us at`}
+              </p>
+              <a href="mailto:hello@swapit.com">hello@swapit.com</a>
+            </div>
           </Expandable>
           <Expandable title="About">
             <p className="expandable__justify">
