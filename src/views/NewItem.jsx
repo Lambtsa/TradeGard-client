@@ -3,6 +3,7 @@ import { useOktaAuth } from '@okta/okta-react';
 import { postItemToAPI } from '../modules/api-service';
 import ImageSlot from '../components/ImageSlot/ImageSlot';
 import SnackBar from '../components/SnackBar/SnackBar';
+import Input from '../components/Input/Input';
 
 const NewItem = () => {
   const { authState } = useOktaAuth();
@@ -49,12 +50,15 @@ const NewItem = () => {
       <h1 className="form__title">Post a new item</h1>
       <p className="form__subtitle">A few seconds away from sharing</p>
       <form className="form" onSubmit={handleFormSubmit}>
-        <label className="form__label" htmlFor="title">
-          Item Title:
-          <input className="form__input" id="title" type="text" value={itemTitle} onChange={onTitleChange} placeholder="Enter title" required />
-        </label>
+        <Input
+          label="Item title"
+          type="text"
+          state={itemTitle}
+          onChange={onTitleChange}
+          placeholder="Enter title"
+          required />
         <label className="form__label" htmlFor="description">
-          Item Description:
+          Item Description
           <textarea className="form__input textarea" id="description" type="text" value={itemDescription} onChange={onDescriptionChange} placeholder="Enter description" required />
         </label>
         <div className="form__image--container">
@@ -66,7 +70,7 @@ const NewItem = () => {
           <ImageSlot state={{ itemImages, setItemImages }} itemTitle={itemTitle} slot="6" />
         </div>
         <label className="form__label select" htmlFor="category">
-          Item Category:
+          Item Category
           <select className="form__input select" id="category" value={itemCategory} onChange={onCategoryChange} required>
             <option value="">Please select category</option>
             <option value="bicycles">Bicycles</option>

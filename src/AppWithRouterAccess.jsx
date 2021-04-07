@@ -38,7 +38,6 @@ function AppWithRouterAccess() {
   });
 
   const restoreOriginalUri = async (_oktaAuth, originalUri) => {
-    console.log(history);
     history.replace(toRelativeUrl(originalUri, window.location.origin));
   };
 

@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
-import { useParams, Redirect, Link } from 'react-router-dom';
+import {
+  useParams,
+  Redirect,
+  Link,
+  useHistory,
+} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faMapMarkerAlt as mapMarker,
   faClock as clock,
   faUserCircle as userIcon,
 } from '@fortawesome/free-solid-svg-icons';
-import { fetchItemById } from '../modules/api-service';
+import { fetchItemById, updateItemLike } from '../modules/api-service';
 import ContactModal from '../components/ContactModal/ContactModal';
 import ImageCarousel from '../components/ImageCarousel/ImageCarousel';
 import LikeToggle from '../components/LikeToggle/LikeToggle';
@@ -15,12 +20,21 @@ import Loader from '../components/Loader/Loader';
 import SnackBar from '../components/SnackBar/SnackBar';
 
 const ItemDetails = () => {
+  const history = useHistory();
   const { authState } = useOktaAuth();
   const { id } = useParams();
   const [objectDetails, setObjectDetails] = useState({});
   const [error, setError] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [userLikes, setUserLikes] = useState([]);
+  const [isLiked, setIsLiked] = useState(false);
+
+  useEffect(() => {
+    if (userLikes.includes(id)) {
+      setIsLiked(true);
+    }
+  }, [userLikes]);
 
   useEffect(async () => {
     if (authState.accessToken) {
@@ -32,6 +46,7 @@ const ItemDetails = () => {
       } else {
         const details = await response.json();
         setObjectDetails(details);
+        setUserLikes(details.userLikedItems);
         setIsLoading(false);
       }
     } else {
@@ -46,6 +61,29 @@ const ItemDetails = () => {
       }
     }
   }, [authState.isAuthenticated]);
+
+  const handleLikeToggle = () => {
+    if (authState.isAuthenticated) {
+      const { accessToken } = authState.accessToken;
+      if (isLiked) {
+        updateItemLike(id, false, accessToken)
+          .then(() => {
+            setIsLiked(false);
+            setError(false);
+          })
+          .catch(() => setError(true));
+      } else {
+        updateItemLike(id, true, accessToken)
+          .then(() => {
+            setIsLiked(true);
+            setError(false);
+          })
+          .catch(() => setError(true));
+      }
+    } else {
+      history.push('/login');
+    }
+  };
 
   const handleButtonClick = () => {
     setShowModal(true);
@@ -64,7 +102,7 @@ const ItemDetails = () => {
           <div>
             <div className="details__title-container">
               <h2 className="details__title">{objectDetails.itemTitle}</h2>
-              <LikeToggle />
+              <LikeToggle isLiked={isLiked} handleLikeToggle={handleLikeToggle} />
             </div>
             <div className="details__caption">
               <FontAwesomeIcon icon={mapMarker} className="details__caption-icon" />
