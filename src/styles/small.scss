@@ -21,7 +21,7 @@ a {
 }
 p {
   line-height: 1.5rem;
-  color: $black;
+  color: $grey;
 }
 #root {
   display: grid;
@@ -191,21 +191,6 @@ main {
 /*
   MatchCard Component 
 */
-.MatchCard {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  padding: 1rem;
-  box-shadow: 0 0 1px $grey;
-
-  &:nth-child(even) {
-    background-color: darken($white, 2%);
-  }
-
-  &:nth-child(odd) {
-    background-color: $white;
-  }
-}
 
 .MatchCard__top {
   display: flex;
@@ -228,7 +213,6 @@ main {
 .MatchCard__list {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: .5rem;
 }
 
@@ -243,20 +227,6 @@ main {
   &:hover {
     color: $primaryColor;
   }
-}
-
-.MatchCard__userCircle {
-  padding: 0.5rem;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  background: lighten(#61b1fc, 10%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: 700;
-  color: $white;
-  font-size: 1.5rem;
 }
 
 .MatchCard__text {
@@ -711,6 +681,27 @@ main {
 .expandable__container {
   margin-bottom: 1rem;
 }
+.expandable__icon--container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-right: 1rem;
+}
+.expandable__circle {
+  padding: 0.5rem;
+  border-radius: 50%;
+  width: 60px;
+  min-width: 60px;
+  height: 60px;
+  min-height: 60px;
+  background: lighten(#61b1fc, 10%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  color: $white;
+  font-size: 1.5rem;
+}
 .expandable__top {
   display: flex;
   padding: 1rem;
@@ -718,17 +709,25 @@ main {
   align-items: center;
   width: 100%;
   box-shadow: 0 0 1px $grey;
-  h2 {
-    margin: 0;
+  .expandable__details {
+    text-align: left;
+    h2 {
+      margin: .2rem 0;
+    }
+    p span {
+      display: block;
+      font-weight: 700;
+      color: $primaryColor;
+    }
   }
 }
 .expandable__bottom {
   display: grid;
+  text-align: center;
   grid-template-columns: 1fr;
+  gap: 1rem;
   padding: 1rem;
   background-color: darken($white, 2%);
-  justify-content: space-between;
-  align-items: center;
   width: 100%;
   box-shadow: 0 0 1px $grey;
   a {
@@ -742,6 +741,23 @@ main {
   .expandable__justify {
     text-align: justify;
     grid-column: 1 / span 2;
+  }
+}
+.expandable__btn--container {
+  justify-self: center;
+  .expandable__btn {
+    padding: .5rem 1rem;
+    border: 2px solid $primaryColor;
+    background-color: $primaryColor;
+    color: $white;
+    font-weight: 700;
+    border-radius: 4px;
+    width: 100%;
+    margin: 0;
+    &:hover {
+      background-color: darken($primaryColor, 5%);
+      border: 2px solid darken($primaryColor, 5%);
+    }
   }
 }
 .user {

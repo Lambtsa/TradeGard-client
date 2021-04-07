@@ -6,14 +6,24 @@ import {
   faAngleDown as downArrow,
 } from '@fortawesome/free-solid-svg-icons';
 
-const Expandable = ({ children, title, icon }) => {
+const Expandable = ({
+  children,
+  title,
+  subtitle,
+  icon,
+}) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
     <div className="expandable__container">
       <button className={`expandable__top ${isExpanded ? 'expanded' : ''}`} type="button" onClick={() => setIsExpanded(!isExpanded)}>
-        {icon}
-        <h2>{title}</h2>
+        <div className="expandable__icon--container">
+          {icon && <div className="expandable__circle">{icon}</div>}
+          <div className="expandable__details">
+            <h2>{title}</h2>
+            <p>{subtitle}</p>
+          </div>
+        </div>
         <FontAwesomeIcon icon={isExpanded ? downArrow : rightArrow} className="icon__right-arrow" />
       </button>
       {isExpanded && (

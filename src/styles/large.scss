@@ -53,13 +53,23 @@ main {
   &.expanded {
     border-radius: 4px 4px 0 0;
   }
+  .expandable__details {
+    text-align: left;
+    p span {
+      display: inline;
+    }
+  }
 }
+
 .expandable__bottom {
   border-radius: 4px;
   grid-template-columns: repeat(2, 1fr);
   &.expanded {
     border-radius: 0 0 4px 4px;
   }
+}
+.expandable__btn--container {
+  justify-self: left;
 }
 
 /*
