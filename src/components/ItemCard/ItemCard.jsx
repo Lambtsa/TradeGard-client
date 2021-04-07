@@ -61,7 +61,7 @@ const ItemCard = ({ item, userLikes }) => {
             </div>
             <div className="itemCard__secondary">
               <p className="itemCard__subtitle date">
-                {`${item.itemCategory} - ${formattedDate}`}
+                {`${item.itemLocation} - ${formattedDate}`}
               </p>
               <LikeToggle isLiked={isLiked} handleLikeToggle={handleLikeToggle} />
             </div>

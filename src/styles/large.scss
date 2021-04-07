@@ -46,6 +46,33 @@ main {
 }
 
 /*
+  Expandable
+*/
+.expandable__top {
+  border-radius: 4px;
+  &.expanded {
+    border-radius: 4px 4px 0 0;
+  }
+  .expandable__details {
+    text-align: left;
+    p span {
+      display: inline;
+    }
+  }
+}
+
+.expandable__bottom {
+  border-radius: 4px;
+  grid-template-columns: repeat(2, 1fr);
+  &.expanded {
+    border-radius: 0 0 4px 4px;
+  }
+}
+.expandable__btn--container {
+  justify-self: left;
+}
+
+/*
   ItemCard Component
 */
 .itemCard {
@@ -130,8 +157,8 @@ main {
   &.tools {
     background-color: $tools;
   }
-  &.vehicules {
-    background-color: $vehicules;
+  &.vehicles {
+    background-color: $vehicles;
   }
 }
 
@@ -232,10 +259,6 @@ main {
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
 }
-.modal__info--link {
-  color: black;
-  text-decoration: underline;
-}
 /*
   Trades view
 */
@@ -253,4 +276,8 @@ main {
 }
 .button__wrapper {
   padding: 1rem 0;
+}
+.user__subtitle {
+  color: $grey;
+  font-size: 1rem;
 }

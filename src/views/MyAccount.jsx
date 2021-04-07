@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useOktaAuth } from '@okta/okta-react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleRight as rightArrow } from '@fortawesome/free-solid-svg-icons';
 import Loader from '../components/Loader/Loader';
+import Expandable from '../components/Expandable/Expandable';
 import SnackBar from '../components/SnackBar/SnackBar';
 
 const MyAcccount = () => {
@@ -33,18 +33,32 @@ const MyAcccount = () => {
               <p className="user__subtitle">{user.email}</p>
             </div>
           </div>
-          <button className="account__container" type="button" onClick={() => console.log('clicked')}>
-            <h2>My details</h2>
-            <FontAwesomeIcon icon={rightArrow} className="icon__right-arrow" />
-          </button>
-          <button className="account__container" type="button" onClick={() => console.log('clicked')}>
-            <h2>Help</h2>
-            <FontAwesomeIcon icon={rightArrow} className="icon__right-arrow" />
-          </button>
-          <button className="account__container" type="button" onClick={() => console.log('clicked')}>
-            <h2>About</h2>
-            <FontAwesomeIcon icon={rightArrow} className="icon__right-arrow" />
-          </button>
+          <Expandable title="My details">
+            <div>
+              <h3 className="">Your name</h3>
+              <p className="">{user.name}</p>
+              <h3 className="">Your display name</h3>
+              <p className="">{user.nickname}</p>
+              <h3 className="">Your e-mail</h3>
+              <p className="">{user.email}</p>
+              <Link to={`/users/${user.sub}`}>See your items</Link>
+            </div>
+          </Expandable>
+          <Expandable title="Help">
+            <div>
+              <p>
+                {`If you are experiencing any technical
+                issues or have any questions, please contact us at`}
+              </p>
+              <a href="mailto:hello@swapit.com">hello@swapit.com</a>
+            </div>
+          </Expandable>
+          <Expandable title="About">
+            <p className="expandable__justify">
+              {`Welcome to the Three Musketeers' trading app.
+              This is the application we built as a graduation project for the </SALT> Applied School of Technology. Our strong beliefs in responsible consumption and minimalism led us to create and application that would allow users to swap items by matching users that mutually liked each others items.`}
+            </p>
+          </Expandable>
           <div className="btn__wrapper">
             <button type="button" className="secondary__btn" onClick={() => oktaAuth.signOut()}>Logout</button>
           </div>

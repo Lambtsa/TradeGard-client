@@ -4,20 +4,24 @@ body {
 h1 {
   font-size: 1.5rem;
   margin-bottom: .5rem;
+  color: $black;
 }
 h2 {
   font-size: 1.2rem;
   margin-bottom: .5rem;
+  color: $black;
 }
 h3 {
   font-size: 1rem;
   margin-bottom: .3rem;
+  color: $black;
 }
 a {
   text-decoration: none;
 }
 p {
-  line-height: 1.2rem;
+  line-height: 1.5rem;
+  color: $grey;
 }
 #root {
   display: grid;
@@ -156,9 +160,18 @@ main {
   justify-content: center;
   align-items: center;
   color: $black;
-  gap: .5rem;
+  gap: .2rem;
   height: 3rem;
   font-size: 10px;
+  &:hover {
+    color: $primaryColor;
+  }
+  p {
+    line-height: 1rem
+  }
+  &.active {
+    color: $primaryColor;
+  }
 }
 .header__icon {
   font-size: 1.5rem;
@@ -178,21 +191,6 @@ main {
 /*
   MatchCard Component 
 */
-.MatchCard {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  padding: 1rem;
-  box-shadow: 0 0 1px $grey;
-
-  &:nth-child(even) {
-    background-color: darken($white, 2%);
-  }
-
-  &:nth-child(odd) {
-    background-color: $white;
-  }
-}
 
 .MatchCard__top {
   display: flex;
@@ -215,7 +213,6 @@ main {
 .MatchCard__list {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: .5rem;
 }
 
@@ -230,20 +227,6 @@ main {
   &:hover {
     color: $primaryColor;
   }
-}
-
-.MatchCard__userCircle {
-  padding: 0.5rem;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  background: lighten(#61b1fc, 10%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: 700;
-  color: $white;
-  font-size: 1.5rem;
 }
 
 .MatchCard__text {
@@ -329,7 +312,7 @@ main {
 .ImageSlot__img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
   border-radius: 4px;
 }
@@ -387,7 +370,7 @@ main {
     padding-left: 3rem;
   }
   &.select {
-    margin-bottom: .2rem;
+    margin-bottom: 1rem;
     background-image: url('../assets/chevronDown.svg');
     background-repeat: no-repeat;
     background-position: calc(100% - 1rem);
@@ -524,6 +507,7 @@ main {
 }
 
 .details__caption {
+  text-transform: capitalize;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -672,13 +656,19 @@ main {
   border-radius: 4px;
   position: relative;
 }
+.modal__subtitle {
+  font-size: 1.2rem;
+}
 .modal__title {
   font-size: 1.5rem;
   margin-bottom: 2.5rem;
 }
 .modal__info--link, .modal__info {
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   margin-bottom: 1.5rem;
+  &:hover {
+  color: $primaryColor;
+  }
 }
 .modal__info--link {
   color: black;
@@ -688,15 +678,86 @@ main {
 /*
   My account Component
 */
-.account__container {
+.expandable__container {
+  margin-bottom: 1rem;
+}
+.expandable__icon--container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-right: 1rem;
+}
+.expandable__circle {
+  padding: 0.5rem;
+  border-radius: 50%;
+  width: 60px;
+  min-width: 60px;
+  height: 60px;
+  min-height: 60px;
+  background: lighten(#61b1fc, 10%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  color: $white;
+  font-size: 1.5rem;
+}
+.expandable__top {
   display: flex;
   padding: 1rem;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   box-shadow: 0 0 1px $grey;
-  h2 {
+  .expandable__details {
+    text-align: left;
+    h2 {
+      margin: .2rem 0;
+    }
+    p span {
+      display: block;
+      font-weight: 700;
+      color: $primaryColor;
+    }
+  }
+}
+.expandable__bottom {
+  display: grid;
+  text-align: center;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: darken($white, 2%);
+  width: 100%;
+  box-shadow: 0 0 1px $grey;
+  a {
+    color: $primaryColor;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+  p {
+    margin-bottom: 1rem;
+  }
+  .expandable__justify {
+    text-align: justify;
+    grid-column: 1 / span 2;
+  }
+}
+.expandable__btn--container {
+  justify-self: center;
+  .expandable__btn {
+    padding: .5rem 1rem;
+    border: 2px solid $primaryColor;
+    background-color: $primaryColor;
+    color: $white;
+    font-weight: 700;
+    border-radius: 4px;
+    width: 100%;
     margin: 0;
+    &:hover {
+      background-color: darken($primaryColor, 5%);
+      border: 2px solid darken($primaryColor, 5%);
+    }
   }
 }
 .user {
@@ -723,4 +784,5 @@ main {
 }
 .user__subtitle {
   color: $grey;
+  font-size: .8rem;
 }

@@ -8,7 +8,7 @@ import {
   faHeart as heartIcon,
   faUserCircle as accountIcon,
 } from '@fortawesome/free-solid-svg-icons';
-import NavLink from '../NavLink/NavLink';
+import NavigationLink from '../NavigationLink/NavigationLink';
 import moustache from '../../assets/moustacheIcon.svg';
 
 /* eslint-disable */
@@ -34,11 +34,11 @@ const Header = () => {
       <div className="header__container">
         <img className="header__img" src={moustache} alt="Moustache black" />
         <nav className="header__nav">
-          <NavLink link="/" linkText="Browse" icon={searchIcon} />
-          <NavLink link="/new-item" linkText="New item" icon={addIcon} />
-          <NavLink link="/trades" linkText="Trading" icon={swapIcon} />
-          <NavLink link="/likes" linkText="Likes" icon={heartIcon} />
-          <NavLink link="/my-account" linkText={authState.isAuthenticated ? displayName : 'Login'} icon={accountIcon} />
+          <NavigationLink link="/" linkText="Browse" icon={searchIcon} />
+          <NavigationLink link="/new-item" linkText="New item" icon={addIcon} />
+          <NavigationLink link="/trades" linkText="Trading" icon={swapIcon} />
+          <NavigationLink link="/likes" linkText="Likes" icon={heartIcon} />
+          <NavigationLink link="/my-account" linkText={authState.isAuthenticated ? displayName : 'Login'} icon={accountIcon} />
         </nav>
       </div>
     </header>

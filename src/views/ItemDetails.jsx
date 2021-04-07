@@ -106,7 +106,7 @@ const ItemDetails = () => {
             </div>
             <div className="details__caption">
               <FontAwesomeIcon icon={mapMarker} className="details__caption-icon" />
-              <p>Stockholm</p>
+              <p>{objectDetails.itemLocation}</p>
             </div>
             <div className="details__caption">
               <FontAwesomeIcon icon={clock} className="details__caption-icon" />
