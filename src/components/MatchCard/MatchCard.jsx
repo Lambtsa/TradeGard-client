@@ -6,7 +6,6 @@ import Expandable from '../Expandable/Expandable';
 const MatchCard = ({ matchDetails }) => {
   const [showModal, setShowModal] = useState(false);
 
-  console.log(matchDetails);
   return (
     <>
       <li className="MatchCard">
