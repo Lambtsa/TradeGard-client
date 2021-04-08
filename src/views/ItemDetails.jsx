@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useOktaAuth } from '@okta/okta-react';
 import {
   useParams,
   Redirect,
@@ -21,7 +20,6 @@ import SnackBar from '../components/SnackBar/SnackBar';
 
 const ItemDetails = () => {
   const history = useHistory();
-  const { authState } = useOktaAuth();
   const { id } = useParams();
   const [objectDetails, setObjectDetails] = useState({});
   const [error, setError] = useState(false);
@@ -37,8 +35,8 @@ const ItemDetails = () => {
   }, [userLikes]);
 
   useEffect(async () => {
-    if (authState.accessToken) {
-      const { accessToken } = authState.accessToken;
+    if (localStorage['okta-token-storage']) {
+      const { accessToken } = JSON.parse(localStorage['okta-token-storage']).accessToken;
       const response = await fetchItemById(id, accessToken);
       if (!response.ok) {
         setIsLoading(false);
@@ -60,11 +58,11 @@ const ItemDetails = () => {
         setIsLoading(false);
       }
     }
-  }, [authState.isAuthenticated]);
+  }, []);
 
   const handleLikeToggle = () => {
-    if (authState.isAuthenticated) {
-      const { accessToken } = authState.accessToken;
+    if (localStorage['okta-token-storage']) {
+      const { accessToken } = JSON.parse(localStorage['okta-token-storage']).accessToken;
       if (isLiked) {
         updateItemLike(id, false, accessToken)
           .then(() => {
