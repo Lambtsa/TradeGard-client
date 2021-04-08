@@ -55,7 +55,9 @@ const ItemCard = ({ item, userLikes }) => {
           </Link>
           <div className="itemCard__details">
             <div className="itemCard__primary">
-              <h3 className="itemCard__title">{item.itemTitle}</h3>
+              <Link to={`/items/${item._id}`}>
+                <h3 className="itemCard__title">{item.itemTitle}</h3>
+              </Link>
               <p className={`itemCard__subtitle category ${item.itemCategory}`}>{item.itemCategory}</p>
               <p className="itemCard__subtitle description">{item.itemDescription}</p>
             </div>
