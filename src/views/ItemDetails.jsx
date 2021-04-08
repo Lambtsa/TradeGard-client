@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useOktaAuth } from '@okta/okta-react';
 import {
   useParams,
   Redirect,
@@ -21,9 +20,9 @@ import SnackBar from '../components/SnackBar/SnackBar';
 
 const ItemDetails = () => {
   const history = useHistory();
-  const { authState } = useOktaAuth();
   const { id } = useParams();
   const [objectDetails, setObjectDetails] = useState({});
+  const [owner, setOwner] = useState({});
   const [error, setError] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -37,16 +36,17 @@ const ItemDetails = () => {
   }, [userLikes]);
 
   useEffect(async () => {
-    if (authState.accessToken) {
-      const { accessToken } = authState.accessToken;
+    if (localStorage['okta-token-storage']) {
+      const { accessToken } = JSON.parse(localStorage['okta-token-storage']).accessToken;
       const response = await fetchItemById(id, accessToken);
       if (!response.ok) {
         setIsLoading(false);
         setError(true);
       } else {
-        const details = await response.json();
-        setObjectDetails(details);
-        setUserLikes(details.userLikedItems);
+        const data = await response.json();
+        setObjectDetails(data.item);
+        setOwner(data.itemOwner);
+        setUserLikes(data.userLikedItems);
         setIsLoading(false);
       }
     } else {
@@ -55,16 +55,17 @@ const ItemDetails = () => {
         setIsLoading(false);
         setError(true);
       } else {
-        const details = await response.json();
-        setObjectDetails(details);
+        const data = await response.json();
+        setObjectDetails(data.item);
+        setOwner(data.itemOwner);
         setIsLoading(false);
       }
     }
-  }, [authState.isAuthenticated]);
+  }, []);
 
   const handleLikeToggle = () => {
-    if (authState.isAuthenticated) {
-      const { accessToken } = authState.accessToken;
+    if (localStorage['okta-token-storage']) {
+      const { accessToken } = JSON.parse(localStorage['okta-token-storage']).accessToken;
       if (isLiked) {
         updateItemLike(id, false, accessToken)
           .then(() => {
@@ -115,8 +116,8 @@ const ItemDetails = () => {
             <p className="details__description">{objectDetails.itemDescription}</p>
             <div className="details__caption--posted">
               <FontAwesomeIcon icon={userIcon} className="details__caption-icon" />
-              <Link to={`/users/${objectDetails.itemOwner.userId}`}>
-                {`Posted by: ${objectDetails.itemOwner.userDisplayName}`}
+              <Link to={`/users/${owner.userId}`}>
+                {`Posted by: ${owner.userDisplayName}`}
               </Link>
             </div>
             <button className="primary__btn" onClick={handleButtonClick} type="button">Contact</button>
@@ -124,7 +125,7 @@ const ItemDetails = () => {
         </article>
       )}
       {showModal && (
-        <ContactModal ownerDetails={objectDetails.itemOwner} setShowModal={setShowModal} />
+        <ContactModal ownerDetails={owner} setShowModal={setShowModal} />
       )}
       {error && <SnackBar state={error} setState={setError} type="error" message="There was an issue, please try again." />}
     </section>
