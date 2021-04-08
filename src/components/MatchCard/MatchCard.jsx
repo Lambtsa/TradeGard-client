@@ -13,10 +13,10 @@ const MatchCard = ({ matchDetails }) => {
           title={matchDetails.userDisplayName}
           subtitle={
             (
-              <p>
+              <>
                 They have liked
                 <span>{` ${matchDetails.userLikeCount} of your items`}</span>
-              </p>
+              </>
             )
           }
           icon={matchDetails.userDisplayName[0].toUpperCase()}>
