@@ -50,7 +50,7 @@ const MyAcccount = () => {
                 {`If you are experiencing any technical
                 issues or have any questions, please contact us at`}
               </p>
-              <a href="mailto:hello@swapit.com">hello@swapit.com</a>
+              <a href="mailto:hello@tradegard.com">hello@tradegard.com</a>
             </div>
           </Expandable>
           <Expandable title="About">
