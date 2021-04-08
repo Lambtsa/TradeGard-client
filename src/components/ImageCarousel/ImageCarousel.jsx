@@ -29,18 +29,20 @@ const ImageCarousel = ({ images }) => {
   };
 
   return (
-    <div className="carousel__container">
-      {images.length > 1 && (
-        <>
-          <button type="button" onClick={handlePrevClick} className="carousel__btn--prev">
-            <FontAwesomeIcon className="carousel__btn--icon" icon={leftArrow} />
-          </button>
-          <button type="button" onClick={handleNextClick} className="carousel__btn--next">
-            <FontAwesomeIcon className="carousel__btn--icon" icon={rightArrow} />
-          </button>
-        </>
-      )}
-      <img src={currentImage} alt="Item" className="carousel__img" />
+    <div>
+      <div className="carousel__container">
+        {images.length > 1 && (
+          <>
+            <button type="button" onClick={handlePrevClick} className="carousel__btn--prev">
+              <FontAwesomeIcon className="carousel__btn--icon" icon={leftArrow} />
+            </button>
+            <button type="button" onClick={handleNextClick} className="carousel__btn--next">
+              <FontAwesomeIcon className="carousel__btn--icon" icon={rightArrow} />
+            </button>
+          </>
+        )}
+        <img src={currentImage} alt="Item" className="carousel__img" />
+      </div>
       <p className="carousel__number">{`${index + 1} / ${images.length}`}</p>
     </div>
   );
