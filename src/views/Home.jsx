@@ -4,12 +4,13 @@ import { fetchAllItems } from '../modules/api-service';
 
 import Loader from '../components/Loader/Loader';
 import ItemList from '../components/ItemList/ItemList';
+import SnackBar from '../components/SnackBar/SnackBar';
 
 const Home = () => {
   const { authState } = useOktaAuth();
   const [items, setItems] = useState([]);
   const [noItemError, setnoItemError] = useState(false);
-  const [fetchError, setFetchError] = useState(false);
+  const [error, setError] = useState(false);
   const [userLikes, setUserLikes] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -29,16 +30,16 @@ const Home = () => {
       setUserLikes(fetchedData.userLikedItems);
       setIsLoading(false);
     } else {
-      setFetchError(true);
+      setError(true);
       setIsLoading(false);
     }
   }, [authState.isAuthenticated]);
 
   return (
     <section className="items__container">
-      {fetchError && <p>Items could not be fetched</p>}
+      {error && <SnackBar type="error" message="There has been an error. Please try again." state={error} setState={setError} />}
       {noItemError && <p>Oops! There are no items at the moment</p>}
-      {!fetchError && items.length > 0 && (
+      {!error && items.length > 0 && (
         <ItemList items={items} userLikes={userLikes} />
       )}
       {isLoading && <Loader />}
