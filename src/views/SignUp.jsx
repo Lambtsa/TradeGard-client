@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useOktaAuth } from '@okta/okta-react';
 import { postNewUserToAPI } from '../modules/api-service';
@@ -24,49 +24,48 @@ const SignUp = () => {
   const handlePasswordChange = e => setPassword(e.target.value);
   const handleConfirmPasswordChange = e => setConfirmPassword(e.target.value);
 
-  useEffect(() => {
+  const handleFormSubmit = async event => {
+    window.scrollTo(0, 0);
+    event.preventDefault();
     if (userPassword !== confirmPassword) {
       setError(true);
       setErrorMessage('Please ensure that your passwords match!');
-    }
-  }, [userPassword, confirmPassword]);
-
-  const handleFormSubmit = async event => {
-    event.preventDefault();
-    const newUser = {
-      user: {
-        userFirstName,
-        userLastName,
-        userDisplayName,
-        userTelephone,
-        userEmail,
-        userPassword,
-      },
-    };
-    const response = await postNewUserToAPI(newUser);
-    if (!response.ok) {
-      setError(true);
-      const err = await response.json();
-      setErrorMessage(err.message);
     } else {
-      try {
-        const transaction = await oktaAuth.signIn({
-          username: newUser.user.userEmail,
-          password: newUser.user.userPassword,
-        });
-        if (transaction.status === 'SUCCESS') {
-          oktaAuth.signInWithRedirect({
-            originalUri: '/',
-            sessionToken: transaction.sessionToken,
+      const newUser = {
+        user: {
+          userFirstName,
+          userLastName,
+          userDisplayName,
+          userTelephone,
+          userEmail,
+          userPassword,
+        },
+      };
+      const response = await postNewUserToAPI(newUser);
+      if (!response.ok) {
+        setError(true);
+        const err = await response.json();
+        setErrorMessage(err.message);
+      } else {
+        try {
+          const transaction = await oktaAuth.signIn({
+            username: newUser.user.userEmail,
+            password: newUser.user.userPassword,
           });
-          setError(false);
-        } else {
+          if (transaction.status === 'SUCCESS') {
+            oktaAuth.signInWithRedirect({
+              originalUri: '/',
+              sessionToken: transaction.sessionToken,
+            });
+            setError(false);
+          } else {
+            setError(true);
+            setErrorMessage('Login failed');
+          }
+        } catch (err) {
           setError(true);
           setErrorMessage('Login failed');
         }
-      } catch (err) {
-        setError(true);
-        setErrorMessage('Login failed');
       }
     }
   };
