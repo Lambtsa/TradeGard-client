@@ -558,8 +558,8 @@ main {
 .carousel__btn--next, .carousel__btn--prev {
   display: block;
   position: absolute;
-  top: 45%;
-  bottom: 45%;
+  transform: translateY(50%);
+  bottom: 50%;
 }
 .carousel__btn--next {
   right: .5rem;
@@ -572,7 +572,7 @@ main {
   color: $black;
 }
 .carousel__number {
-  text-align: right;
+  text-align: center;
   margin-right: 1rem;
   font-weight: 700;
   font-size: .8rem;
