@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import {
   faSearch as searchIcon,
   faPlusCircle as addIcon,
@@ -32,7 +32,9 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header__container">
-        <img className="header__img" src={moustache} alt="Moustache black" />
+        <Link to="/">
+          <img className="header__img" src={moustache} alt="Moustache black" />
+        </Link>
         <nav className="header__nav">
           <NavigationLink link="/" linkText="Browse" icon={searchIcon} />
           <NavigationLink link="/new-item" linkText="New item" icon={addIcon} />
