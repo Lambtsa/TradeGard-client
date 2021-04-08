@@ -102,11 +102,17 @@ main {
 }
 
 .itemCard__details {
+  position: initial;
   display: flex;
   padding: 1rem;
   justify-content: flex-start;
   padding-top: .5rem;
   width: 100%;
+  .icon__heart--btn {
+    position: initial;
+    transform: initial;
+    bottom: initial;
+  }
 }
 .itemCard__subtitle.description {
   display: -webkit-box;
