@@ -7,7 +7,7 @@ import ItemList from '../components/ItemList/ItemList';
 import Loader from '../components/Loader/Loader';
 
 const Likes = () => {
-  const { oktaAuth } = useOktaAuth();
+  const { authState, oktaAuth } = useOktaAuth();
   const [error, setError] = useState(false);
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
@@ -16,8 +16,8 @@ const Likes = () => {
     const details = await oktaAuth.token.getUserInfo();
     const id = details.sub;
     let accessToken;
-    if (localStorage['okta-token-storage']) {
-      accessToken = JSON.parse(localStorage['okta-token-storage']).accessToken.accessToken;
+    if (authState.isAuthenticated) {
+      accessToken = authState.accessToken.accessToken;
     }
     const response = await fetchLikedItems(id, accessToken);
     if (!response.ok) {
@@ -27,7 +27,7 @@ const Likes = () => {
       setData(responseData);
       setIsLoading(false);
     }
-  }, []);
+  }, [authState.isAuthenticated]);
 
   return (
     <>

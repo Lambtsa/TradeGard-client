@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useOktaAuth } from '@okta/okta-react';
 import { fetchAllItems } from '../modules/api-service';
 
 import Loader from '../components/Loader/Loader';
@@ -6,6 +7,7 @@ import ItemList from '../components/ItemList/ItemList';
 import SnackBar from '../components/SnackBar/SnackBar';
 
 const Home = () => {
+  const { authState } = useOktaAuth();
   const [items, setItems] = useState([]);
   const [noItemError, setnoItemError] = useState(false);
   const [error, setError] = useState(false);
@@ -14,8 +16,8 @@ const Home = () => {
 
   useEffect(async () => {
     let accessToken;
-    if (localStorage['okta-token-storage']) {
-      accessToken = JSON.parse(localStorage['okta-token-storage']).accessToken.accessToken;
+    if (authState.isAuthenticated) {
+      accessToken = authState.accessToken.accessToken;
     }
     const response = await fetchAllItems(accessToken);
     if (response.ok) {
@@ -31,7 +33,7 @@ const Home = () => {
       setError(true);
       setIsLoading(false);
     }
-  }, []);
+  }, [authState.isAuthenticated]);
 
   return (
     <section className="items__container">
