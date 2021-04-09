@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { useOktaAuth } from '@okta/okta-react';
 import { fetchAllItemsByUserId } from '../modules/api-service';
 
 import Loader from '../components/Loader/Loader';
@@ -8,6 +9,7 @@ import ItemList from '../components/ItemList/ItemList';
 
 const UserItems = () => {
   const { userId } = useParams();
+  const { authState } = useOktaAuth();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
   const [data, setData] = useState({
@@ -18,8 +20,8 @@ const UserItems = () => {
 
   useEffect(async () => {
     let accessToken;
-    if (localStorage['okta-token-storage']) {
-      accessToken = JSON.parse(localStorage['okta-token-storage']).accessToken.accessToken;
+    if (authState.isAuthenticated) {
+      accessToken = authState.accessToken.accessToken;
     }
     const response = await fetchAllItemsByUserId(userId, accessToken);
     if (!response.ok) {
@@ -30,7 +32,7 @@ const UserItems = () => {
       setError(false);
       setIsLoading(false);
     }
-  }, []);
+  }, [authState.isAuthenticated]);
 
   return (
     <section className="items__container">

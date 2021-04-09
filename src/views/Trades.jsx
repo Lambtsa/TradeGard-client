@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from 'react';
+import { useOktaAuth } from '@okta/okta-react';
 import { getMatches } from '../modules/api-service';
 import MatchCard from '../components/MatchCard/MatchCard';
 import SnackBar from '../components/SnackBar/SnackBar';
 import Loader from '../components/Loader/Loader';
 
 const Trades = () => {
+  const { authState } = useOktaAuth();
   const [matches, setMatches] = useState([]);
   const [error, setError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const { accessToken } = JSON.parse(localStorage['okta-token-storage']).accessToken;
+    const { accessToken } = authState.accessToken;
     getMatches(accessToken)
       .then(response => response.json())
       .then(data => {
