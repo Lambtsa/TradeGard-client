@@ -62,12 +62,12 @@ This software uses the following packages:
 
 ### Desktop
 
-![Screenshot of TradeGard web app](https://raw.githubusercontent.com/Lambtsa/TradeGard-client/main/screenshots/desktop1.png)
-![Screenshot of TradeGard web app](https://raw.githubusercontent.com/Lambtsa/TradeGard-client/main/screenshots/desktop2.png)
-![Screenshot of TradeGard web app](https://raw.githubusercontent.com/Lambtsa/TradeGard-client/main/screenshots/desktop3.png)
+<img src="https://raw.githubusercontent.com/Lambtsa/TradeGard-client/main/screenshots/desktop1.png" width="450">
+<img src="https://raw.githubusercontent.com/Lambtsa/TradeGard-client/main/screenshots/desktop2.png" width="450">
+<img src="https://raw.githubusercontent.com/Lambtsa/TradeGard-client/main/screenshots/desktop3.png" width="450">
 
 ### Mobile
 
-<img src="https://raw.githubusercontent.com/Lambtsa/TradeGard-client/main/screenshots/mobile1.png" width="150">
-<img src="https://raw.githubusercontent.com/Lambtsa/TradeGard-client/main/screenshots/mobile2.png" width="150">
-<img src="https://raw.githubusercontent.com/Lambtsa/TradeGard-client/main/screenshots/mobile3.png" width="150">
+<img src="https://raw.githubusercontent.com/Lambtsa/TradeGard-client/main/screenshots/mobile1.png" width="200">
+<img src="https://raw.githubusercontent.com/Lambtsa/TradeGard-client/main/screenshots/mobile2.png" width="200">
+<img src="https://raw.githubusercontent.com/Lambtsa/TradeGard-client/main/screenshots/mobile3.png" width="200">
