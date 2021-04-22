@@ -68,6 +68,6 @@ This software uses the following packages:
 
 ### Mobile
 
-![Screenshot of TradeGard web app](https://raw.githubusercontent.com/Lambtsa/TradeGard-client/main/screenshots/mobile1.png)
-![Screenshot of TradeGard web app](https://raw.githubusercontent.com/Lambtsa/TradeGard-client/main/screenshots/mobile2.png)
-![Screenshot of TradeGard web app](https://raw.githubusercontent.com/Lambtsa/TradeGard-client/main/screenshots/mobile3.png)
+<img src="https://raw.githubusercontent.com/Lambtsa/TradeGard-client/main/screenshots/mobile1.png" width="150">
+<img src="https://raw.githubusercontent.com/Lambtsa/TradeGard-client/main/screenshots/mobile2.png" width="150">
+<img src="https://raw.githubusercontent.com/Lambtsa/TradeGard-client/main/screenshots/mobile3.png" width="150">
