@@ -57,3 +57,17 @@ This software uses the following packages:
 
 ## Related 
 [Trading app Nodejs/Express Rest API](https://github.com/Lambtsa/trading-app-server)
+
+## Screenshots
+
+### Desktop
+
+![Screenshot of TradeGard web app](https://raw.githubusercontent.com/Lambtsa/TradeGard-client/main/screenshots/desktop1.png)
+![Screenshot of TradeGard web app](https://raw.githubusercontent.com/Lambtsa/TradeGard-client/main/screenshots/desktop2.png)
+![Screenshot of TradeGard web app](https://raw.githubusercontent.com/Lambtsa/TradeGard-client/main/screenshots/desktop3.png)
+
+### Mobile
+
+![Screenshot of TradeGard web app](https://raw.githubusercontent.com/Lambtsa/TradeGard-client/main/screenshots/mobile1.png)
+![Screenshot of TradeGard web app](https://raw.githubusercontent.com/Lambtsa/TradeGard-client/main/screenshots/mobile2.png)
+![Screenshot of TradeGard web app](https://raw.githubusercontent.com/Lambtsa/TradeGard-client/main/screenshots/mobile3.png)
